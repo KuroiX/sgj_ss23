@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 
-public class CharController : MonoBehaviour
+public abstract class CharController : MonoBehaviour
 {
     
     public InputInterface Input { get; set; }
 
-    private CharacterController _controller;
+    protected CharacterController Controller;
 
     private void Start()
     {
-        _controller = GetComponent<CharacterController>();
+        Controller = GetComponent<CharacterController>();
     }
 
     private void FixedUpdate()
     {
-        _controller.Move(Input.MoveDirection);
+        Move(Input.MoveDirection);
     }
+
+    protected abstract void Move(Vector2 direction);
+
+    protected abstract void Ability1();
+    
+    protected abstract void Ability2();
 
 }
