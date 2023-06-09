@@ -17,11 +17,6 @@ public class PlayerInput : MonoBehaviour, InputInterface
         _characterInput.Mouse.Enable();
     }
 
-    private void Start()
-    {
-        GameObject.Find("Character").GetComponent<CharController>().Input = this;
-    }
-
     private void OnEnable()
     {
         _characterInput.Keyboard.Move.performed += MoveOnPerformed;
