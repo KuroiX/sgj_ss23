@@ -2,9 +2,9 @@
 
 public interface InputInterface
 {
-
-    protected static Vector2 MoveDirection;
-    protected static bool Ability1;
-    protected static bool Ability2;
+    
+    public Vector2 MoveDirection { get; set; }
+    public bool Ability1 { get; set; }
+    public bool Ability2 { get; set; }
 
 }

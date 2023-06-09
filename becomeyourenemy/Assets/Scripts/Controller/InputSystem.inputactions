@@ -1,5 +1,5 @@
 {
-    "name": "CharacterInput",
+    "name": "InputSystem",
     "maps": [
         {
             "name": "Keyboard",
