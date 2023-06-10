@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Controller.Characters
 {
     
     public class GengarActions : DefaultActions
     {
-        
+        private void Awake()
+        {
+            actionIndex = 2;
+        }
+
         public override void OnHit(int damage, bool enemyAbility)
         {
             takeDamage<GengarActions>();

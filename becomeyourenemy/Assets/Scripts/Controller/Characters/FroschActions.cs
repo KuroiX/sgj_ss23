@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,11 @@ namespace Controller.Characters
 {
     public class FroschActions : DefaultActions
     {
+        private void Awake()
+        {
+            actionIndex = 3; //stomp
+        }
+
         public override void OnHit(int damage, bool enemyAbility)
         {
             takeDamage<FroschActions>();
