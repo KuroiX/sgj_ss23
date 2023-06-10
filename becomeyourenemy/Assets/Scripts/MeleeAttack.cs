@@ -11,6 +11,12 @@ public class MeleeAttack : MonoBehaviour
 
     private float _lifeTime;
     private float _currentlifeTime;
+    private Transform _parent;
+
+    public void SetParent(Transform parentTransform)
+    {
+        _parent = parentTransform;
+    }
 
     public void SetLifeTime(float lifeTime)
     {
@@ -21,7 +27,7 @@ public class MeleeAttack : MonoBehaviour
     {
         player = GameObject.Find("Player");
         //TODO muss geändert werden!!
-        gameObject.transform.parent = player.transform;
+        gameObject.transform.parent = _parent;
     }
 
     private void Update()
