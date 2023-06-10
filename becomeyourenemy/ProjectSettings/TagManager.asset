@@ -3,13 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
+    tags:
   - Character
-=======
   - SpawnPoint
   - Rooms
->>>>>>> main
   layers:
   - Default
   - TransparentFX
