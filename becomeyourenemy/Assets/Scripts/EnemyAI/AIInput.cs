@@ -248,6 +248,12 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             
             case SEEState.FLEE:
                 MoveDirection = vectorToPlayer.normalized  * (fleeSpeed * -1);
+                
+                if(_attackCooldownTime < 0)
+                {
+                    performAttack(vectorToPlayer);
+                    _attackCooldownTime = attackCooldown;
+                }
 
                 if (vectorToPlayer.magnitude > fleeRange + _rangeBuffer)
                 {
