@@ -22,6 +22,8 @@ namespace Controller.Characters
 
         private int _currentHealth;
 
+        [SerializeField] private EnemyHealth health;
+
 
         private void Start()
         {
@@ -80,7 +82,7 @@ namespace Controller.Characters
             }
             else
             {
-                GetComponent<EnemyHealth>().TakeDamage(1,1);
+                health.TakeDamage(1,1);
             }
             if (_currentHealth <= 0)
             {

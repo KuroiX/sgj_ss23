@@ -22,13 +22,14 @@ public class EnemyHealth : MonoBehaviour
     {
         _currentSliderValue = 1;
         maxHealth = actions.stats.health;
+        Debug.Log(actions.stats.health);
         healthText.text = _currentHealth + " / " + maxHealth;
+        _currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //maxHealth = actions.stats.health;
         healthSlider.value = _currentHealth / maxHealth;
         healthText.text = _currentHealth + " / " + maxHealth;
     }
