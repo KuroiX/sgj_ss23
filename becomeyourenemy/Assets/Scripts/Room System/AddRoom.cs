@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class AddRoom : MonoBehaviour
 {
+    //Entry room and Boss room should not have more enemies!
+    public bool hasNoEnemies;
 
     private RoomTemplates templates;
+
+    private bool active;
+
+    public GameObject placeholder;
+
+    //TODO:Enemies Scripts?
+    private List<GameObject> enemies = new List<GameObject>();
 
     void Start()
     {
         //TODO: Spawn Obstacles and enemies
+        for(int i = 0; i < Random.Range(1, 5); i++)
+        {
+            enemies.Add(new GameObject());
+            Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+        }
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(this.gameObject);
