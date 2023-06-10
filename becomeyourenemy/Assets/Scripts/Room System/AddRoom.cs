@@ -12,6 +12,11 @@ public class AddRoom : MonoBehaviour
     //Do we need this even if we use OnInit() and OnFinish()
     private bool active;
 
+    public GameObject enemyParent;
+
+    public int enemyMelee;
+    public int enemyRanged;
+
     public GameObject placeholder;
 
     //TODO:Enemies Scripts?
@@ -26,6 +31,8 @@ public class AddRoom : MonoBehaviour
 
     void OnInit()
     {
+        if (hasNoEnemies) return;
+
         //TODO: Spawn Obstacles and enemies
         for (int i = 0; i < Random.Range(1, 5); i++)
         {
@@ -39,23 +46,18 @@ public class AddRoom : MonoBehaviour
             //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
-        foreach (Vector3 go in enemiesMeleeSP)
-        {
-            //Instead of placeholder -> Enemy Prefab
-            Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
-        }
+        SpawnEnemies(enemyMelee, enemiesMeleeSP);
+        SpawnEnemies(enemyRanged, enemiesRangedSP);
 
-        foreach (Vector3 go in enemiesRangedSP)
-        {
-            //Instead of placeholder -> Enemy Prefab
-            Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
-
-        }
     }
 
     void OnFinish()
     {
-        //Delete enemies remaining on the list
+        //Delete enemies remaining under the GameObject
+        foreach(Transform child in enemyParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     //Can also be an Enum to determine which type of enemy will be instantiated
@@ -66,16 +68,16 @@ public class AddRoom : MonoBehaviour
             switch(enemyType)
             {
                 case 0:
-                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
                     break;
                 case 1:
-                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
                     break;
                     case 2:
-                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
                     break;
                 default:
-                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
                     break;
             }
         }
