@@ -16,7 +16,7 @@ public class MainMenuController : MonoBehaviour
     {
         todosPanel.SetActive(false);
         ActivatePanel(mainPanel);
-        
+
         _sceneLoader = FindObjectOfType<SceneLoader>();
     }
     
