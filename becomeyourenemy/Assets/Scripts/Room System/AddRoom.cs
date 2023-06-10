@@ -9,6 +9,7 @@ public class AddRoom : MonoBehaviour
 
     private RoomTemplates templates;
 
+    //Do we need this even if we use OnInit() and OnFinish()
     private bool active;
 
     public GameObject placeholder;
@@ -22,10 +23,34 @@ public class AddRoom : MonoBehaviour
         for(int i = 0; i < Random.Range(1, 5); i++)
         {
             enemies.Add(new GameObject());
-            Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+            //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(this.gameObject);
+
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            enemies.Remove(enemies[i]);
+        }
+    }
+
+    void OnInit()
+    {
+        foreach(GameObject go in enemies)
+        {
+            Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+
+        }
+    }
+
+    void OnFinish()
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player") OnInit();
     }
 }
