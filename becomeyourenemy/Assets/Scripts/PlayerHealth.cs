@@ -22,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     private bool _dead;
 
     public int currentKillCount;
+
+    private bool _updateHealth;
     
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
         _currentSliderValue = 1;
         _dead = false;
         currentKillCount = 0;
+        _updateHealth = false;
     }
 
     private void Start()
@@ -42,6 +45,13 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(_updateHealth);
+        if (_updateHealth)
+        {
+            maxHealth = GetComponent<DefaultActions>().stats.health;
+            _currentHealth = maxHealth;
+            _updateHealth = false;
+        }
         healthSlider.value = _currentHealth / maxHealth;
         healthText.text = _currentHealth + " / " + maxHealth;
         /*if (Input.GetKeyDown(KeyCode.Space))
@@ -82,10 +92,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealth()
     {
-        currentActions = GetComponent<DefaultActions>();
-        print(currentActions.stats.health);
-        maxHealth = currentActions.stats.health;
-        _currentHealth = maxHealth;
+        _updateHealth = true;
     }
 
     public void UpdateKillCount()

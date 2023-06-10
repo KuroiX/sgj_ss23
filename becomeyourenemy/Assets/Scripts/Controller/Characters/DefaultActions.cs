@@ -68,7 +68,6 @@ namespace Controller.Characters
 
         }
 
-
         private void Move(Vector2 direction)
         {
             _rigidbody2D.MovePosition((Vector2)transform.position + direction * stats.speed * 0.05f);
@@ -88,11 +87,11 @@ namespace Controller.Characters
 
                 player.AddComponent<T>();
                 player.GetComponent<T>().stats = stats;
-                player.GetComponent<PlayerHealth>().UpdateHealth();
                 // TODO: fix null reference when killing gengar as gengar
                 player.GetComponent<T>().Input = player.GetComponent<InputInterface>();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 Destroy(gameObject);
+                player.GetComponent<PlayerHealth>().UpdateHealth();
             }
 
         }
