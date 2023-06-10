@@ -91,16 +91,6 @@ public abstract class AIInput : MonoBehaviour, InputInterface
          _searchTime -= Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform.CompareTag("Obstacle"))
-        {
-            var hit = Physics2D.Raycast(transform.position, _idleDirection);
-            Debug.Log("Obstacle! ");
-            _idleDirection = Vector2.Reflect(_idleDirection,hit.normal);
-        }
-    }
-
     private bool playerIsDestroyed()
     {
         return ((object)playerTransform) != null && !playerTransform;
