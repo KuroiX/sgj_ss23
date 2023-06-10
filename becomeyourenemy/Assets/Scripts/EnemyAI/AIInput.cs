@@ -46,16 +46,16 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     #region IdleRegion
     private Vector2 _idlePoint;
-    private float _idleTime;
-    private float _idleTimeToReach;
-    private bool _idleIsSet;
+    protected float _idleTime;
+    protected float _idleTimeToReach;
+    protected bool _idleIsSet;
     private Vector2 _idlePointToReach;
     private float _attackCooldownTime;
     private float _searchTime;
     private Vector2 _searchPosition;
     #endregion
 
-    private void Start()
+    protected virtual void Start()
     {
         GetComponent<DefaultActions>().Input = this;
         currentState = AIState.IDLE;
@@ -116,6 +116,12 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         IdleMovement();
     }
 
+    protected virtual Vector2 generateNextIdlePoint()
+    {
+        return new Vector2(Random.Range(_idlePoint.x - idleMoveRange, _idlePoint.x + idleMoveRange),
+            Random.Range(_idlePoint.y - idleMoveRange, _idlePoint.y + idleMoveRange));
+    }
+
     protected virtual void IdleMovement()
     {
         switch (currentIdleState)
@@ -142,13 +148,9 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             case IDLEState.MOVE:
                 if (!_idleIsSet)
                 {
-                    _idlePointToReach =
-                        new Vector2(Random.Range(_idlePoint.x - idleMoveRange, _idlePoint.x + idleMoveRange),
-                            Random.Range(_idlePoint.y - idleMoveRange, _idlePoint.y + idleMoveRange));
+                    _idlePointToReach = generateNextIdlePoint();
                     _idleIsSet = true;
                 }
-
-                Debug.Log(_idlePointToReach);
 
                 //Move to point
                 Vector2 directionVector = (_idlePointToReach - (Vector2)transform.position).normalized;
