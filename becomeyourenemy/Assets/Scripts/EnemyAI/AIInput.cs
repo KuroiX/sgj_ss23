@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Controller;
 using Controller.Characters;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 
 public abstract class AIInput : MonoBehaviour, InputInterface
@@ -46,16 +48,19 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     #region IdleRegion
     private Vector2 _idlePoint;
-    private float _idleTime;
-    private float _idleTimeToReach;
-    private bool _idleIsSet;
+    protected float _idleTime;
+    protected float _idleTimeToReach;
+    protected bool _idleIsSet;
     private Vector2 _idlePointToReach;
+    public Vector2 _idleDirection;
     private float _attackCooldownTime;
     private float _searchTime;
     private Vector2 _searchPosition;
+
+    private float _rangeBuffer;
     #endregion
 
-    private void Start()
+    protected virtual void Start()
     {
         GetComponentInChildren<DefaultActions>().Input = this;
         currentState = AIState.IDLE;
@@ -66,6 +71,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         _attackCooldownTime = 0;
         _searchTime = 0;
         _searchPosition = Vector2.zero;
+        _rangeBuffer = 0.1f;
     }
 
     private void Update()
@@ -100,11 +106,20 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         return (Vector2) (playerTransform.position - this.transform.position) ;
     }
 
-    private void manageIdle()
+    private bool canSeePlayer()
     {
         Vector2 vectorToPlayer  = this.vectorToPlayer();
+        if (vectorToPlayer.magnitude > seeRange)
+        {
+            return false;
+        }
+        var hit = Physics2D.Raycast(this.transform.position, vectorToPlayer.normalized, seeRange + _rangeBuffer);
+        return !hit.transform.CompareTag("Obstacle");
+    }
 
-        if (vectorToPlayer.magnitude < seeRange)
+    private void manageIdle()
+    {
+        if (canSeePlayer())
         {
             this.currentState = AIState.SEE;
             this.currentSeeState = SEEState.CHASE;
@@ -113,6 +128,12 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         
         //do idle things
         IdleMovement();
+    }
+
+    protected virtual Vector2 generateNextIdlePoint()
+    {
+        return new Vector2(Random.Range(_idlePoint.x - idleMoveRange, _idlePoint.x + idleMoveRange),
+            Random.Range(_idlePoint.y - idleMoveRange, _idlePoint.y + idleMoveRange));
     }
 
     protected virtual void IdleMovement()
@@ -141,22 +162,22 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             case IDLEState.MOVE:
                 if (!_idleIsSet)
                 {
-                    _idlePointToReach =
-                        new Vector2(Random.Range(_idlePoint.x - idleMoveRange, _idlePoint.x + idleMoveRange),
-                            Random.Range(_idlePoint.y - idleMoveRange, _idlePoint.y + idleMoveRange));
+                    Vector2 pointToReach = generateNextIdlePoint();
+                    _idleDirection = (pointToReach - (Vector2)transform.position).normalized;
+                    _idleTimeToReach = Random.Range(1, 3);
                     _idleIsSet = true;
                 }
 
-                Debug.Log(_idlePointToReach);
-
-                //Move to point
-                Vector2 directionVector = (_idlePointToReach - (Vector2)transform.position).normalized;
-                MoveDirection = directionVector * idleSpeed;
+                //Move towards direction
+                MoveDirection = _idleDirection * idleSpeed;
+                //Move for time
+                _idleTime += Time.deltaTime;
                 
                 
                 //Point is reached
-                if( (_idlePointToReach - (Vector2)transform.position).magnitude <= 0.2f)
+                if(_idleTime >= _idleTimeToReach || (_idlePointToReach - (Vector2)transform.position).magnitude <= 0.2f)
                 {
+                    _idleTime = 0;
                     _idleIsSet = false;
                     MoveDirection = Vector2.zero;
                     currentIdleState = IDLEState.WAIT;
@@ -169,9 +190,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void manageSee()
     {
-        Vector2 vectorToPlayer = this.vectorToPlayer();
-
-        if (vectorToPlayer.magnitude > seeRange)
+        if (!canSeePlayer())
         {
             this.currentState = AIState.SEARCH;
             _searchTime = searchTime;
@@ -180,6 +199,11 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         }
 
         SeeMovement();
+    }
+
+    protected virtual void performAttack(Vector2 vectorToPlayer)
+    {
+        Ability1Direction = vectorToPlayer.normalized;
     }
 
     protected virtual void SeeMovement()
@@ -191,7 +215,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 
                 MoveDirection = vectorToPlayer.normalized * chaseSpeed;
 
-                if (vectorToPlayer.magnitude < attackRange)
+                if (vectorToPlayer.magnitude < attackRange - _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.ATTACK;
                     if (_attackCooldownTime < 0)
@@ -208,15 +232,15 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
                 if(_attackCooldownTime < 0)
                 {
-                    Ability1Direction = vectorToPlayer.normalized;
+                    performAttack(vectorToPlayer);
                     _attackCooldownTime = attackCooldown;
                 }
 
                 
-                if (vectorToPlayer.magnitude > attackRange)
+                if (vectorToPlayer.magnitude > attackRange + _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.CHASE;
-                }else if (vectorToPlayer.magnitude < fleeRange)
+                }else if (vectorToPlayer.magnitude < fleeRange - _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.FLEE;
                 }
@@ -224,8 +248,14 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             
             case SEEState.FLEE:
                 MoveDirection = vectorToPlayer.normalized  * (fleeSpeed * -1);
+                
+                if(_attackCooldownTime < 0)
+                {
+                    performAttack(vectorToPlayer);
+                    _attackCooldownTime = attackCooldown;
+                }
 
-                if (vectorToPlayer.magnitude > fleeRange)
+                if (vectorToPlayer.magnitude > fleeRange + _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.ATTACK;
                 }
@@ -236,8 +266,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void manageSearch()
     {
-        Vector2 vectorToPlayer = this.vectorToPlayer();
-        if (vectorToPlayer.magnitude < seeRange)
+        if (canSeePlayer())
         {
             this.currentState = AIState.SEE;
             this.currentSeeState = SEEState.CHASE;
