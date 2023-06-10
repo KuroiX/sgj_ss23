@@ -8909,7 +8909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4282328089768959834, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.7
+      value: 23.16
       objectReference: {fileID: 0}
     - target: {fileID: 4282328089768959834, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8949,11 +8949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: seeRange
-      value: 15
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: fleeRange
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: fleeSpeed
@@ -8961,11 +8961,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: idleSpeed
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: chaseSpeed
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: attackRange
@@ -8973,15 +8973,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: attackSpeed
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: searchSpeed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: actionsDelay
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: idleMoveRange
@@ -8989,12 +8989,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: attackCooldown
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1419788671}
+    - target: {fileID: 8709905081095005790, guid: 79e83037c7bebba42814603142727be7, type: 3}
+      propertyPath: idleRectangleSize
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8709905081446945954, guid: 79e83037c7bebba42814603142727be7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

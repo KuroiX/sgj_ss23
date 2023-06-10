@@ -52,7 +52,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     protected float _idleTimeToReach;
     protected bool _idleIsSet;
     private Vector2 _idlePointToReach;
-    public Vector2 _idleDirection;
+    private Vector2 _idleDirection;
     private float _attackCooldownTime;
     private float _searchTime;
     private Vector2 _searchPosition;
