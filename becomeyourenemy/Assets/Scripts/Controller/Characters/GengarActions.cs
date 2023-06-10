@@ -6,9 +6,9 @@ namespace Controller.Characters
     public class GengarActions : DefaultActions
     {
         
-        public override void OnHit()
+        public override void OnHit(int damage, bool enemyAbility)
         {
-            Switch<GengarActions>();
+            takeDamage<GengarActions>();
         }
 
         protected override void Ability1(Vector2 direction)

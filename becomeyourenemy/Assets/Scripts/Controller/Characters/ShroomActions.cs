@@ -6,9 +6,9 @@ namespace Controller.Characters
     public class ShroomActions : DefaultActions
     {
         
-        public override void OnHit()
+        public override void OnHit(int damage, bool enemyAbility)
         {
-            Switch<ShroomActions>();
+            takeDamage<ShroomActions>();
         }
 
         protected override void Ability1(Vector2 direction)
