@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Controller;
+using Controller.Characters;
 using UnityEngine;
 
 
@@ -7,9 +9,8 @@ using UnityEngine;
 public abstract class AIInput : MonoBehaviour, InputInterface
 {
     public Vector2 MoveDirection { get; set; }
-    public bool Ability1 { get; set; }
-    public bool Ability2 { get; set; }
-
+    public Vector2 Ability1Direction { get; set; }
+    public Vector2 Ability2Direction { get; set; }
     
     protected enum AIState
     {
@@ -35,6 +36,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     [SerializeField] protected float fleeRange;
     [SerializeField] protected float idleMoveRange;
     [SerializeField] protected float idleMoveSpeedFactor;
+    [SerializeField] protected Transform playerTransform;
 
 
     #region IdleRegion
@@ -47,6 +49,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void Start()
     {
+        GetComponent<DefaultActions>().Input = this;
         currentState = AIState.IDLE;
         currSeeState = SEEState.CHASE;
         currIdleState = IDLEState.WAIT;
@@ -85,8 +88,6 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     protected virtual void IdleMovement()
     {
-        //TODO switch zu anderem state implementieren!
-        
         switch (currIdleState)
         {
             case IDLEState.WAIT:
@@ -117,15 +118,18 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                     _idleIsSet = true;
                 }
 
+                Debug.Log(_idlePointToReach);
+
                 //Move to point
                 Vector2 directionVector = (_idlePointToReach - (Vector2)transform.position).normalized;
                 MoveDirection = directionVector * idleMoveSpeedFactor;
                 
                 
                 //Point is reached
-                if((Vector2)transform.position == _idlePointToReach)
+                if( (_idlePointToReach - (Vector2)transform.position).magnitude <= 0.2f)
                 {
                     _idleIsSet = false;
+                    MoveDirection = Vector2.zero;
                     currIdleState = IDLEState.WAIT;
                 }
                 
