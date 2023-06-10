@@ -12,7 +12,7 @@ namespace Controller.Characters
         [SerializeField]
         public DefaultStats stats; // todo stats need ability cooldowns
 
-        private Rigidbody2D _rigidbody2D;
+        protected Rigidbody2D _rigidbody2D;
         [SerializeField] private float ab1cooldown;
         [SerializeField] private float ab2cooldown;
         private float lastAb1 = float.MinValue;
