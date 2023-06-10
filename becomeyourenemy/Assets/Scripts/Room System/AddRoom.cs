@@ -9,6 +9,7 @@ public class AddRoom : MonoBehaviour
 
     void Start()
     {
+        //TODO: Spawn Obstacles and enemies
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(this.gameObject);
