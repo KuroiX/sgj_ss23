@@ -21,7 +21,6 @@ namespace Controller.Characters
 
         private void FixedUpdate()
         {
-            Debug.Log("PlayerPosition: "+transform.position);
             
             if (Input.MoveDirection.magnitude > 0)
             {
