@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
             other.gameObject.GetComponentInChildren<DefaultActions>().OnHit();
             Destroy(gameObject);
         }
+        
     }
     
 }

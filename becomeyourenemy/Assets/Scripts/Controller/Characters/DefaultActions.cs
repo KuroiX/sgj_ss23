@@ -137,6 +137,7 @@ namespace Controller.Characters
             }
             if (_currentHealth <= 0)
             {
+                
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
