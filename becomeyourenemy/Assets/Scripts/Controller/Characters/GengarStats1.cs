@@ -8,6 +8,7 @@ namespace Controller.Characters
     {
         
         public float velocity;
+        public float angleOffset;
         public GameObject projectile;
         
     }
