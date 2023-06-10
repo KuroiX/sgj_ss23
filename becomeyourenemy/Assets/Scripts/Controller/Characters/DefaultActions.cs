@@ -97,20 +97,23 @@ namespace Controller.Characters
             }
             if (_currentHealth <= 0)
             {
-                GameObject parent = transform.parent.gameObject;
-                GameObject playerchild = player.GetComponentInChildren<DefaultActions>().gameObject;
-                
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
-                Input = player.GetComponent<InputInterface>();
-                _rigidbody2D = player.GetComponent<Rigidbody2D>();
                 ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
                 ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
+                
                 _currentHealth = stats.health;
-                Debug.Log(Input.GetType().FullName);
+                Input = player.GetComponent<InputInterface>();
+                _rigidbody2D = player.GetComponent<Rigidbody2D>();
+                
+                GameObject enemyParent = transform.parent.gameObject;
+                GameObject playerChild = player.GetComponentInChildren<DefaultActions>().gameObject;
+                
                 transform.SetParent(player.transform);
-                playerchild.transform.parent = parent.transform;
-                Destroy(parent);
+                transform.localPosition = new Vector3(0f, 0f, 0f);
+                
+                Destroy(playerChild);
+                Destroy(enemyParent);
 
             }
         }
