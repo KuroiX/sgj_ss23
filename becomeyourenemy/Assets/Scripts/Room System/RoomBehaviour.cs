@@ -29,7 +29,7 @@ public class RoomBehaviour : MonoBehaviour
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(this.gameObject);
 
-        //OnInit();
+        OnInit();
     }
 
     void OnInit()
@@ -37,20 +37,22 @@ public class RoomBehaviour : MonoBehaviour
         if (hasNoEnemies) return;
 
         //TODO: Spawn Obstacles and enemies
-        for (int i = 0; i < Random.Range(1, 5); i++)
+        //for (int i = 0; i < Random.Range(1, 5); i++)
+        for (int i = 0; i < enemyMelee; i++)
         {
             enemiesMeleeSP.Add(new Vector3(enemyParent.transform.position.x + Random.Range(-3.75f, 3.75f), enemyParent.transform.position.y + Random.Range(-3.75f, 3.75f), 0));
             //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
-        for (int i = 0; i < Random.Range(1, 5); i++)
+        //for (int i = 0; i < Random.Range(1, 5); i++)
+        for (int i = 0; i < enemyRanged; i++)
         {
             enemiesRangedSP.Add(new Vector3(enemyParent.transform.position.x + Random.Range(-3.75f, 3.75f), enemyParent.transform.position.y + Random.Range(-3.75f, 3.75f), 0));
             //Instantiate(placeholder.enemyType1, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
-        SpawnEnemies(enemyMelee, enemiesMeleeSP);
-        SpawnEnemies(enemyRanged, enemiesRangedSP);
+        SpawnEnemies(enemiesMeleeSP, enemiesRangedSP);
+        //SpawnEnemies(enemyRanged, enemiesRangedSP);
 
     }
 
@@ -66,25 +68,42 @@ public class RoomBehaviour : MonoBehaviour
     }
 
     //Can also be an Enum to determine which type of enemy will be instantiated
-    void SpawnEnemies(int enemyType, List<Vector3> enemyList)
+    //Got rid of this because it is gonna be hardcoded at the end
+
+    //void SpawnEnemies(int enemyType, List<Vector3> enemyList)
+    //{
+    //    foreach (Vector3 go in enemyList)
+    //    {
+    //        switch (enemyType)
+    //        {
+    //            case 0:
+    //                Instantiate(placeholder.enemyType1, go, Quaternion.identity, enemyParent.transform);
+    //                break;
+    //            case 1:
+    //                Instantiate(placeholder.enemyType2, go, Quaternion.identity, enemyParent.transform);
+    //                break;
+    //            //case 2:
+    //            //    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
+    //            //    break;
+    //            default:
+    //                Instantiate(placeholder.enemyType1, go, Quaternion.identity, enemyParent.transform);
+    //                break;
+    //        }
+    //    }
+    //}
+
+    //Because maybe there are gonna be only one type of enemy per tier, i left it like this but it can be changed to different types
+
+    void SpawnEnemies(List<Vector3> enemyMeleeList, List<Vector3> enemyRangedList)
     {
-        foreach (Vector3 go in enemyList)
+        foreach (Vector3 go in enemyMeleeList)
         {
-            switch (enemyType)
-            {
-                case 0:
-                    Instantiate(placeholder.enemyType1, go, Quaternion.identity, enemyParent.transform);
-                    break;
-                case 1:
-                    Instantiate(placeholder.enemyType2, go, Quaternion.identity, enemyParent.transform);
-                    break;
-                //case 2:
-                //    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
-                //    break;
-                default:
-                    Instantiate(placeholder.enemyType1, go, Quaternion.identity, enemyParent.transform);
-                    break;
-            }
+            Instantiate(placeholder.moreEnemytypes[0], go, Quaternion.identity, enemyParent.transform);
+        }
+
+        foreach (Vector3 go in enemyMeleeList)
+        {
+            Instantiate(placeholder.moreEnemytypes[1], go, Quaternion.identity, enemyParent.transform);
         }
     }
 
