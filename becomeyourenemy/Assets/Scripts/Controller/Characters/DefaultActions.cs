@@ -30,7 +30,6 @@ namespace Controller.Characters
         private AbilityCooldown ability2Cooldown;
         
 
-
         private void Start()
         {
             _rigidbody2D = GetComponentInParent<Rigidbody2D>();
@@ -46,11 +45,7 @@ namespace Controller.Characters
 
             //Debug.Log("Input: "+Input);
             //Debug.Log("MoveDirection: "+Input.MoveDirection);
-            
-            if (Input.MoveDirection.magnitude > 0)
-            {
-                Move(Input.MoveDirection);
-            }
+            Move(Input.MoveDirection);
 
             if (Input.Ability1Direction.magnitude > 0)
             {
@@ -86,7 +81,7 @@ namespace Controller.Characters
 
         private void Move(Vector2 direction)
         {
-            _rigidbody2D.MovePosition((Vector2)transform.position + direction * stats.speed * 0.05f);
+            _rigidbody2D.velocity = direction * stats.speed;
         }
 
         protected void Switch<T>() where T: DefaultActions

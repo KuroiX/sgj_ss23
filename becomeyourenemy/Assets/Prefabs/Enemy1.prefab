@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &545356735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1963619056}
   - component: {fileID: 1963619058}
   - component: {fileID: 1963619057}
+  - component: {fileID: 1963619059}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -371,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08469184, g: 0.5283019, b: 0, a: 1}
+  m_Color: {r: 0.6037736, g: 0.07895815, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -388,6 +389,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1963619059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963619055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.19215687}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2140227577
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +540,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 565e00ceea8947e4ea5eecc995a1ab90, type: 2}
+  ab1cooldown: 0
+  ab2cooldown: 0
   health: {fileID: 733775116}
 --- !u!1 &4878012144187259148
 GameObject:
@@ -632,14 +650,14 @@ MonoBehaviour:
   seeRange: 15
   chaseSpeed: 1.5
   attackRange: 8
-  attackSpeed: 0
+  attackSpeed: 1
   attackCooldown: 4
-  fleeRange: 0
+  fleeRange: 2
   fleeSpeed: 1
   idleMoveRange: 5
   idleSpeed: 1
-  searchSpeed: 0
-  searchTime: 0
+  searchSpeed: 1
+  searchTime: 1
   playerTransform: {fileID: 0}
   actionsDelay: 0.2
 --- !u!61 &4878012144187259377

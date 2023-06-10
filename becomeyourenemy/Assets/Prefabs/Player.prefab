@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 6d77437b861ae3c4ba48da896cebb0d4, type: 2}
+  ab1cooldown: 1
+  ab2cooldown: 1
+  health: {fileID: 0}
 --- !u!1 &8872193487293105349
 GameObject:
   m_ObjectHideFlags: 0
