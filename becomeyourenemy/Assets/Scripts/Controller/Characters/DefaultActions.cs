@@ -26,6 +26,9 @@ namespace Controller.Characters
         
         private AbilityCooldown ability1Cooldown;
         private AbilityCooldown ability2Cooldown;
+
+        private float ability1Countdown;
+        private float ability2Countdown;
         
 
         private void Start()
@@ -35,9 +38,45 @@ namespace Controller.Characters
             ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
             ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
             _currentHealth = stats.health;
+            ability1Countdown = 0;
+            ability2Countdown = 0;
         }
 
-        private void FixedUpdate()
+        private void Update()
+        {
+            
+            Move(Input.MoveDirection);
+            
+            if (ability1Countdown > 0) 
+                ability1Countdown -= Time.deltaTime;
+            if (ability2Countdown > 0) 
+                ability2Countdown -= Time.deltaTime;
+            if (Input.Ability1Direction.magnitude > 0 && ability1Countdown <= 0)
+            {
+                ability1Countdown = stats.ability1Cooldown;
+                ability1Countdown -= Time.deltaTime;
+                Ability1(Input.Ability1Direction);
+                if (Input.GetType() == typeof(PlayerInput))
+                {
+                    ability1Cooldown.StartCooldown(stats.ability1Cooldown);
+                }
+            }
+
+            if (Input.Ability2Direction.magnitude > 0 && ability1Countdown <= 0)
+            {
+                ability2Countdown = stats.ability2Cooldown;
+                ability2Countdown -= Time.deltaTime;
+                Ability2(Input.Ability2Direction);
+                if (Input.GetType() == typeof(PlayerInput))
+                {
+                    ability2Cooldown.StartCooldown(stats.ability2Cooldown);
+                }
+            }
+
+        }
+
+
+       /* private void FixedUpdate()
         {
             float t = Time.time;
 
@@ -47,8 +86,10 @@ namespace Controller.Characters
 
             if (Input.Ability1Direction.magnitude > 0)
             {
+                Debug.Log("test1");
                 if (t > lastAb1 + stats.ability1Cooldown)
                 {
+                    Debug.Log("test2");
                     Ability1(Input.Ability1Direction);
                     if (Input.GetType() == typeof(PlayerInput))
                     {
@@ -75,7 +116,7 @@ namespace Controller.Characters
                 }
             }
 
-        }
+        }*/
 
         private void Move(Vector2 direction)
         {

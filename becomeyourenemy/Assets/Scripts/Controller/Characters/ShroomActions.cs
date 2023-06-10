@@ -3,12 +3,12 @@
 namespace Controller.Characters
 {
     
-    public class FrogActions : DefaultActions
+    public class ShroomActions : DefaultActions
     {
         
         public override void OnHit()
         {
-            Switch<FrogActions>();
+            Switch<ShroomActions>();
         }
 
         protected override void Ability1(Vector2 direction)

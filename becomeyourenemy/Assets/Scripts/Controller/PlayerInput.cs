@@ -32,7 +32,9 @@ namespace Controller
             _characterInput.Keyboard.Move.canceled += MoveOnPerformed;
         
             _characterInput.Mouse.Ability1.performed += Ability1OnPerformed;
+            _characterInput.Mouse.Ability1.canceled += Ability1OnCanceled;
             _characterInput.Mouse.Ability2.performed += Ability2OnPerformed;
+            _characterInput.Mouse.Ability2.canceled += Ability2OnCanceled;
         }
 
         private void OnDisable()
@@ -41,7 +43,10 @@ namespace Controller
             _characterInput.Keyboard.Move.canceled -= MoveOnPerformed;
         
             _characterInput.Mouse.Ability1.performed -= Ability1OnPerformed;
+            _characterInput.Mouse.Ability1.canceled -= Ability1OnCanceled;
             _characterInput.Mouse.Ability2.performed -= Ability2OnPerformed;
+            _characterInput.Mouse.Ability1.canceled -= Ability2OnCanceled;
+
         }
 
         private void MoveOnPerformed(InputAction.CallbackContext obj)
@@ -54,10 +59,21 @@ namespace Controller
             Ability1Direction = ((Vector2) (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
         }
 
+        private void Ability1OnCanceled(InputAction.CallbackContext obj)
+        {
+            Ability1Direction = Vector2.zero;
+        }
+
         private void Ability2OnPerformed(InputAction.CallbackContext obj)
         {
             Ability2Direction = ((Vector2) (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
         }
+        
+        private void Ability2OnCanceled(InputAction.CallbackContext obj)
+        {
+            Ability1Direction = Vector2.zero;
+        }
+
 
     }
 }
