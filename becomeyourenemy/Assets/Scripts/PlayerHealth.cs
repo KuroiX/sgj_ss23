@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     private float _currentHealth;
     private bool _dead;
 
-    public int currentKillCount;
+    [HideInInspector] public int currentKillCount;
 
     private bool _updateHealth;
     

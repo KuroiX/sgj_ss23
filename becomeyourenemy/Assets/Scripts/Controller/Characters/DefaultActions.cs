@@ -10,11 +10,11 @@ namespace Controller.Characters
         public InputInterface Input { get; set; }
         
         [SerializeField]
-        public DefaultStats stats;
+        public DefaultStats stats; // todo stats need ability cooldowns
 
         private Rigidbody2D _rigidbody2D;
-        private float ab1cooldown;
-        private float ab2cooldown;
+        [SerializeField] private float ab1cooldown;
+        [SerializeField] private float ab2cooldown;
         private float lastAb1 = float.MinValue;
         private float lastAb2 = float.MinValue;
         
@@ -22,13 +22,21 @@ namespace Controller.Characters
 
         private int _currentHealth;
 
+        [Header("Enemy Specific")]
         [SerializeField] private EnemyHealth health;
+
+        
+        private AbilityCooldown ability1Cooldown;
+        private AbilityCooldown ability2Cooldown;
+        
 
 
         private void Start()
         {
             _rigidbody2D = GetComponentInParent<Rigidbody2D>();
             player = GameObject.Find("Player");
+            ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
+            ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
             _currentHealth = stats.health;
         }
 
@@ -49,6 +57,10 @@ namespace Controller.Characters
                 if (t > lastAb1 + ab1cooldown)
                 {
                     Ability1(Input.Ability1Direction);
+                    if (Input.GetType() == typeof(PlayerInput))
+                    {
+                        ability1Cooldown.StartCooldown(ab1cooldown);
+                    }
                     lastAb1 = t;
                     //Tell UI ability 1 was used
                     Input.Ability1Direction = new Vector2(0f, 0f);
@@ -60,6 +72,10 @@ namespace Controller.Characters
                 if (t > lastAb2 + ab2cooldown)
                 {
                     Ability2(Input.Ability2Direction);
+                    if (Input.GetType() == typeof(PlayerInput))
+                    {
+                        ability2Cooldown.StartCooldown(ab2cooldown);
+                    }
                     lastAb2 = t;
                     //Tell UI ability 2 was used
                     Input.Ability2Direction = new Vector2(0f, 0f);
@@ -93,6 +109,8 @@ namespace Controller.Characters
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 Input = player.GetComponent<InputInterface>();
                 _rigidbody2D = player.GetComponent<Rigidbody2D>();
+                ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
+                ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
                 _currentHealth = stats.health;
                 Debug.Log(Input.GetType().FullName);
                 transform.SetParent(player.transform);
