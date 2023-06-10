@@ -22,6 +22,11 @@ public class RoomBehaviour : MonoBehaviour
     private List<Vector3> enemiesMeleeSP = new List<Vector3>();
     private List<Vector3> enemiesRangedSP = new List<Vector3>();
 
+    [Header("Create empty Gameobjects under Spawnpoints and assign them here")]
+    [Header("These are the positions where the enemies will spawn!")]
+    public List<GameObject> enemiesMeleeHardcodedSP;
+    public List<GameObject> enemiesRangedHardcodedSP;
+
     private List<GameObject> remainingEnemies = new List<GameObject>();
 
     void Start()
@@ -51,9 +56,12 @@ public class RoomBehaviour : MonoBehaviour
             //Instantiate(placeholder.enemyType1, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
-        SpawnEnemies(enemiesMeleeSP, enemiesRangedSP);
+        //Random Positions!
+        //SpawnEnemies(enemiesMeleeSP, enemiesRangedSP);
         //SpawnEnemies(enemyRanged, enemiesRangedSP);
 
+        //Hardcoded Positions
+        SpawnEnemies(enemiesMeleeHardcodedSP, enemiesRangedHardcodedSP);
     }
 
     void OnFinish()
@@ -104,6 +112,19 @@ public class RoomBehaviour : MonoBehaviour
         foreach (Vector3 go in enemyMeleeList)
         {
             Instantiate(placeholder.moreEnemytypes[1], go, Quaternion.identity, enemyParent.transform);
+        }
+    }
+
+    void SpawnEnemies(List<GameObject> enemyMeleeList, List<GameObject> enemyRangedList)
+    {
+        foreach (GameObject go in enemyMeleeList)
+        {
+            Instantiate(placeholder.moreEnemytypes[0], go.transform.position, Quaternion.identity, enemyParent.transform);
+        }
+
+        foreach (GameObject go in enemyMeleeList)
+        {
+            Instantiate(placeholder.moreEnemytypes[1], go.transform.position, Quaternion.identity, enemyParent.transform);
         }
     }
 
