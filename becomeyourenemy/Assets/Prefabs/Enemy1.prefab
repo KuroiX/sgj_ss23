@@ -660,6 +660,7 @@ MonoBehaviour:
   searchTime: 1
   playerTransform: {fileID: 0}
   actionsDelay: 0.2
+  _idleDirection: {x: 0, y: 0}
 --- !u!61 &4878012144187259377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -706,7 +707,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &733775116
 MonoBehaviour:
   m_ObjectHideFlags: 0
