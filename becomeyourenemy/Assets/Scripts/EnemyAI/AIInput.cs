@@ -85,6 +85,8 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     protected virtual void IdleMovement()
     {
+        //TODO switch zu anderem state implementieren!
+        
         switch (currIdleState)
         {
             case IDLEState.WAIT:
