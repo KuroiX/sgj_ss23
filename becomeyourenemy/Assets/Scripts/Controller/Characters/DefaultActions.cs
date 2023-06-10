@@ -77,7 +77,7 @@ namespace Controller.Characters
         protected void Switch<T>() where T: DefaultActions
         {
             _currentHealth -= 1; //todo custom damage for each enemy
-            if (gameObject.CompareTag("Character"))
+            if (Input.GetType() == typeof(PlayerInput))
             {
                 _playerHealth.TakeDamage(1, 1);
             }

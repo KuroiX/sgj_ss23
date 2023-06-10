@@ -83,6 +83,7 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealth()
     {
         currentActions = GetComponent<DefaultActions>();
+        print(currentActions.stats.health);
         maxHealth = currentActions.stats.health;
         _currentHealth = maxHealth;
     }
