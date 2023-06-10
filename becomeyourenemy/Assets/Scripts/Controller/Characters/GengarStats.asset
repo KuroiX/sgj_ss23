@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 4
   damage: 10
   health: 20
-  ability1Cooldown: 3
+  ability1Cooldown: 1
   ability2Cooldown: 1
-  velocity: 4
+  velocity: 2
   projectile: {fileID: 3666110588480143353, guid: ec14d55d59cce9e42a17eea39c7ee62a, type: 3}
