@@ -238,15 +238,19 @@ MonoBehaviour:
   currentState: 0
   currentSeeState: 0
   currentIdleState: 0
-  seeRange: 0
-  chaseSpeed: 0
-  attackRange: 0
+  seeRange: 15
+  chaseSpeed: 1.5
+  attackRange: 8
   attackSpeed: 0
+  attackCooldown: 4
   fleeRange: 0
-  fleeSpeed: 0
+  fleeSpeed: 1
   idleMoveRange: 5
-  idleSpeed: 0
+  idleSpeed: 1
+  searchSpeed: 0
+  searchTime: 0
   playerTransform: {fileID: 1787470565}
+  actionsDelay: 0.2
 --- !u!50 &294372997
 Rigidbody2D:
   serializedVersion: 4
