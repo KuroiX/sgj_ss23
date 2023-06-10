@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
+        Destroy(gameObject, 3);
     }
 
     private void FixedUpdate()
