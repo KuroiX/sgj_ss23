@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        currentActions = GetComponent<DefaultActions>();
+        currentActions = GetComponentInChildren<DefaultActions>();
         maxHealth = currentActions.stats.health;
         _currentHealth = maxHealth;
         healthText.text = _currentHealth + " / " + maxHealth;
@@ -45,10 +45,9 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_updateHealth);
         if (_updateHealth)
         {
-            maxHealth = GetComponent<DefaultActions>().stats.health;
+            maxHealth = GetComponentInChildren<DefaultActions>().stats.health;
             _currentHealth = maxHealth;
             _updateHealth = false;
         }

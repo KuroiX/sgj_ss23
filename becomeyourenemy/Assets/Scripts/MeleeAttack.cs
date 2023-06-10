@@ -44,7 +44,7 @@ public class MeleeAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            other.gameObject.GetComponent<DefaultActions>().OnHit();
+            other.gameObject.GetComponentInChildren<DefaultActions>().OnHit();
         }
     }
 }

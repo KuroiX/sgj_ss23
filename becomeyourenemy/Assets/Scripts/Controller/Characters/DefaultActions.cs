@@ -19,16 +19,16 @@ namespace Controller.Characters
         private float lastAb2 = float.MinValue;
         
         private GameObject player;
-        private PlayerHealth _playerHealth;
 
         private int _currentHealth;
+
+        [SerializeField] private EnemyHealth health;
 
 
         private void Start()
         {
             _rigidbody2D = GetComponentInParent<Rigidbody2D>();
             player = GameObject.Find("Player");
-            _playerHealth = player.GetComponentInParent<PlayerHealth>();
             _currentHealth = stats.health;
         }
 
@@ -78,7 +78,11 @@ namespace Controller.Characters
             _currentHealth -= 1; //todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))
             {
-                _playerHealth.TakeDamage(1, 1);
+                player.GetComponentInParent<PlayerHealth>().TakeDamage(1, 1);
+            }
+            else
+            {
+                health.TakeDamage(1,1);
             }
             if (_currentHealth <= 0)
             {
@@ -88,8 +92,10 @@ namespace Controller.Characters
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 Input = player.GetComponent<InputInterface>();
-                
-                transform.parent = player.transform;
+                _rigidbody2D = player.GetComponent<Rigidbody2D>();
+                _currentHealth = stats.health;
+                Debug.Log(Input.GetType().FullName);
+                transform.SetParent(player.transform);
                 playerchild.transform.parent = parent.transform;
                 Destroy(parent);
 
