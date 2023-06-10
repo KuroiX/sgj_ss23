@@ -25,8 +25,10 @@ namespace Controller.Characters
 
         private void FixedUpdate()
         {
-            Debug.Log("PlayerPosition: "+transform.position);
             float t = Time.time;
+
+            //Debug.Log("Input: "+Input);
+            //Debug.Log("MoveDirection: "+Input.MoveDirection);
             
             if (Input.MoveDirection.magnitude > 0)
             {
