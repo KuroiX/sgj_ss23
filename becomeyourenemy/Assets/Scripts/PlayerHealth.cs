@@ -11,21 +11,24 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private UIManager _uiManager;
 
     private DefaultActions currentActions;
     
-    [Header("Attributes")]
+    [Header("Health Attributes")]
     private float _currentSliderValue;
     private float maxHealth;
     private float _currentHealth;
     private bool _dead;
-    
+
+    public int currentKillCount;
     
     // Start is called before the first frame update
     void Awake()
     {
         _currentSliderValue = 1;
         _dead = false;
+        currentKillCount = 0;
     }
 
     private void Start()
@@ -82,5 +85,11 @@ public class PlayerHealth : MonoBehaviour
         currentActions = GetComponent<DefaultActions>();
         maxHealth = currentActions.stats.health;
         _currentHealth = maxHealth;
+    }
+
+    public void UpdateKillCount()
+    {
+        currentKillCount++;
+        _uiManager.killCount = currentKillCount;
     }
 }

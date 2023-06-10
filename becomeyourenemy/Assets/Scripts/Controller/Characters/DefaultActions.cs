@@ -78,6 +78,7 @@ namespace Controller.Characters
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 // TODO: fix null reference when killing gengar as gengar
                 player.GetComponent<T>().Input = player.GetComponent<InputInterface>();
+                player.GetComponent<PlayerHealth>().UpdateKillCount();
                 Destroy(gameObject);
             }
 
