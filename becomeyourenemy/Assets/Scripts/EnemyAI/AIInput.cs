@@ -34,12 +34,13 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     [SerializeField] protected float chaseSpeed;
     [SerializeField] protected float attackRange;
     [SerializeField] protected float attackSpeed;
+    [SerializeField] protected float attackCooldown;
     [SerializeField] protected float fleeRange;
     [SerializeField] protected float fleeSpeed;
     [SerializeField] protected float idleMoveRange;
     [SerializeField] protected float idleSpeed;
     [SerializeField] protected Transform playerTransform;
-   
+    [SerializeField] protected float actionsDelay;
 
     #region IdleRegion
     private Vector2 _idlePoint;
@@ -47,6 +48,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     private float _idleTimeToReach;
     private bool _idleIsSet;
     private Vector2 _idlePointToReach;
+    private float _attackCooldownTime;
     #endregion
 
     private void Start()
@@ -57,6 +59,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         currentIdleState = IDLEState.WAIT;
         _idlePoint = new Vector2(transform.position.x, transform.position.y);
         _idleIsSet = false;
+        _attackCooldownTime = 0;
     }
 
     private void Update()
@@ -67,6 +70,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             case AIState.SEE: manageSee(); break;
             case AIState.SEARCH: manageSearch(); break;
         }
+         _attackCooldownTime -= Time.deltaTime / attackCooldown;
     }
 
     private Vector2 vectorToPlayer()
@@ -81,6 +85,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         if (vectorToPlayer.magnitude < seeRange)
         {
             this.currentState = AIState.SEE;
+            this.currentSeeState = SEEState.CHASE;
             return;
         }
         
@@ -147,6 +152,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         if (vectorToPlayer.magnitude > seeRange)
         {
             this.currentState = AIState.IDLE;
+            this.currentIdleState = IDLEState.WAIT;
             return;
         }
 
@@ -155,6 +161,8 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     protected virtual void SeeMovement()
     {
+      
+        
         Vector2 vectorToPlayer = this.vectorToPlayer();
         switch (currentSeeState)
         {
@@ -165,6 +173,12 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 if (vectorToPlayer.magnitude < attackRange)
                 {
                     this.currentSeeState = SEEState.ATTACK;
+                    if (_attackCooldownTime < 0)
+                    {
+                        _attackCooldownTime = 0;
+                        
+                    }
+                    _attackCooldownTime += actionsDelay;
                 }
                 break;
             
@@ -172,6 +186,13 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 
                 MoveDirection = vectorToPlayer.normalized * attackSpeed;
 
+                if(_attackCooldownTime < 0)
+                {
+                    Ability1Direction = vectorToPlayer.normalized;
+                    _attackCooldownTime = attackCooldown;
+                }
+
+                
                 if (vectorToPlayer.magnitude > attackRange)
                 {
                     this.currentSeeState = SEEState.CHASE;
