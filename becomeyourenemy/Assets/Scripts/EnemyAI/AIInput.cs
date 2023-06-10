@@ -4,8 +4,13 @@ using UnityEngine;
 
 
 
-public abstract class EnemyAI : MonoBehaviour, InputInterface
+public abstract class AIInput : MonoBehaviour, InputInterface
 {
+    public Vector2 MoveDirection { get; set; }
+    public bool Ability1 { get; set; }
+    public bool Ability2 { get; set; }
+
+    
     protected enum AIState
     {
         SEE, SEARCH, IDLE
@@ -29,7 +34,7 @@ public abstract class EnemyAI : MonoBehaviour, InputInterface
     [SerializeField] protected float attackRange;
     [SerializeField] protected float fleeRange;
     [SerializeField] protected float idleMoveRange;
-    [SerializeField] protected float idleSpeed;
+    [SerializeField] protected float idleMoveSpeedFactor;
 
 
     #region IdleRegion
@@ -111,10 +116,12 @@ public abstract class EnemyAI : MonoBehaviour, InputInterface
                 }
 
                 //Move to point
-                transform.position = Vector3.MoveTowards(transform.position, _idlePointToReach, idleSpeed * 0.1f);
-
+                Vector2 directionVector = (_idlePointToReach - (Vector2)transform.position).normalized;
+                MoveDirection = directionVector * idleMoveSpeedFactor;
+                
+                
                 //Point is reached
-                if(new Vector2(transform.position.x, transform.position.y) == _idlePointToReach)
+                if((Vector2)transform.position == _idlePointToReach)
                 {
                     _idleIsSet = false;
                     currIdleState = IDLEState.WAIT;
