@@ -45,7 +45,6 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_updateHealth);
         if (_updateHealth)
         {
             maxHealth = GetComponentInChildren<DefaultActions>().stats.health;

@@ -88,8 +88,10 @@ namespace Controller.Characters
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 Input = player.GetComponent<InputInterface>();
-                
-                transform.parent = player.transform;
+                _rigidbody2D = player.GetComponent<Rigidbody2D>();
+                _currentHealth = stats.health;
+                Debug.Log(Input.GetType().FullName);
+                transform.SetParent(player.transform);
                 playerchild.transform.parent = parent.transform;
                 Destroy(parent);
 
