@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a780f7dc5a954dd8949c3f98f406e037, type: 3}
+  m_Name: FrogStats
+  m_EditorClassIdentifier: 
+  speed: 1
+  damage: 1
+  health: -12
+  lifeTime: 1
+  meleeAttack: {fileID: 7426101202113884455, guid: db9e26b26e3433841b9f757123e1b486, type: 3}
