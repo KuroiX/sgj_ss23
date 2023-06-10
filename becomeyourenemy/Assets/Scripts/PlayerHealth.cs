@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Controller.Characters;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +11,12 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
+
+    private DefaultActions currentActions;
     
     [Header("Attributes")]
     private float _currentSliderValue;
-    public float maxHealth = 200;
+    private float maxHealth;
     private float _currentHealth;
     private bool _dead;
     
@@ -27,6 +30,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        currentActions = GetComponent<DefaultActions>();
+        maxHealth = currentActions.stats.health;
         _currentHealth = maxHealth;
         healthText.text = _currentHealth + " / " + maxHealth;
     }
@@ -69,6 +74,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
+        _currentHealth = maxHealth;
+    }
+
+    public void UpdateHealth()
+    {
+        currentActions = GetComponent<DefaultActions>();
+        maxHealth = currentActions.stats.health;
         _currentHealth = maxHealth;
     }
 }

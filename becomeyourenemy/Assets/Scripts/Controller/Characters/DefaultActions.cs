@@ -10,7 +10,7 @@ namespace Controller.Characters
         public InputInterface Input { get; set; }
         
         [SerializeField]
-        protected DefaultStats stats;
+        public DefaultStats stats;
 
         private Rigidbody2D _rigidbody2D;
 
@@ -60,6 +60,7 @@ namespace Controller.Characters
 
                 player.AddComponent<T>();
                 player.GetComponent<T>().stats = stats;
+                player.GetComponent<PlayerHealth>().UpdateHealth();
                 // TODO: fix null reference when killing gengar as gengar
                 player.GetComponent<T>().Input = player.GetComponent<InputInterface>();
                 Destroy(gameObject);
