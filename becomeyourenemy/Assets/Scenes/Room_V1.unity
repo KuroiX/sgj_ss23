@@ -173,8 +173,7 @@ MonoBehaviour:
   - {fileID: 1915828372064998, guid: 8a1fe1e76eaa4da42ab7a95609601343, type: 3}
   - {fileID: 1982205314345556, guid: c9518fddab9921444b82e86f3d8a9eec, type: 3}
   - {fileID: 1857462433007770, guid: 8d3b3801dbf17644ea3541d229fa3c26, type: 3}
-  - {fileID: 1709453575458850, guid: f19b4cd5436954c41adbd492ce5a8785, type: 3}
-  - {fileID: 1974744948600924, guid: 0c31457eebf9a2d4a972d7ccf023a560, type: 3}
+  - {fileID: 1144202486990382, guid: 96cbb82819b10f14eb4a551f8048e96c, type: 3}
   rightRooms:
   - {fileID: 1982205314345556, guid: c9518fddab9921444b82e86f3d8a9eec, type: 3}
   - {fileID: 1580888179356958, guid: 5bfb28fdf883df24f9ccc648eb33f0bc, type: 3}
@@ -352,6 +351,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114329229263871776, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: hasEnemies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329229263871776, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: hasNoEnemies
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114391489058514274, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: templates
+      value: 
+      objectReference: {fileID: 658832491}
+    - target: {fileID: 114479378148705994, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: templates
+      value: 
+      objectReference: {fileID: 658832491}
+    - target: {fileID: 114504386007222772, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: templates
+      value: 
+      objectReference: {fileID: 658832491}
+    - target: {fileID: 114724521025756804, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: templates
+      value: 
+      objectReference: {fileID: 658832491}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
 --- !u!1 &1870576525
