@@ -13,6 +13,8 @@ namespace Controller.Characters
         public DefaultStats stats; // todo stats need ability cooldowns
 
         private Rigidbody2D _rigidbody2D;
+        [SerializeField] private float ab1cooldown;
+        [SerializeField] private float ab2cooldown;
         private float lastAb1 = float.MinValue;
         private float lastAb2 = float.MinValue;
         
@@ -47,12 +49,12 @@ namespace Controller.Characters
 
             if (Input.Ability1Direction.magnitude > 0)
             {
-                if (t > lastAb1 + stats.ability1Cooldown)
+                if (t > lastAb1 + ab1cooldown)
                 {
                     Ability1(Input.Ability1Direction);
                     if (Input.GetType() == typeof(PlayerInput))
                     {
-                        ability1Cooldown.StartCooldown(stats.ability1Cooldown);
+                        ability1Cooldown.StartCooldown(ab1cooldown);
                     }
                     lastAb1 = t;
                     //Tell UI ability 1 was used
@@ -62,12 +64,12 @@ namespace Controller.Characters
 
             if (Input.Ability2Direction.magnitude > 0)
             {
-                if (t > lastAb2 + stats.ability2Cooldown)
+                if (t > lastAb2 + ab2cooldown)
                 {
                     Ability2(Input.Ability2Direction);
                     if (Input.GetType() == typeof(PlayerInput))
                     {
-                        ability2Cooldown.StartCooldown(stats.ability2Cooldown);
+                        ability2Cooldown.StartCooldown(ab2cooldown);
                     }
                     lastAb2 = t;
                     //Tell UI ability 2 was used
@@ -95,19 +97,23 @@ namespace Controller.Characters
             }
             if (_currentHealth <= 0)
             {
-                GameObject parent = transform.parent.gameObject;
-                GameObject playerchild = player.GetComponentInChildren<DefaultActions>().gameObject;
-                
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
-                Input = player.GetComponent<InputInterface>();
-                _rigidbody2D = player.GetComponent<Rigidbody2D>();
                 ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
                 ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
+                
                 _currentHealth = stats.health;
+                Input = player.GetComponent<InputInterface>();
+                _rigidbody2D = player.GetComponent<Rigidbody2D>();
+                
+                GameObject enemyParent = transform.parent.gameObject;
+                GameObject playerChild = player.GetComponentInChildren<DefaultActions>().gameObject;
+                
                 transform.SetParent(player.transform);
-                playerchild.transform.parent = parent.transform;
-                Destroy(parent);
+                transform.localPosition = new Vector3(0f, 0f, 0f);
+                
+                Destroy(playerChild);
+                Destroy(enemyParent);
 
             }
         }
