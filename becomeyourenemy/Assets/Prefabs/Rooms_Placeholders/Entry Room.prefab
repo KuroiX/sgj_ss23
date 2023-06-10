@@ -499,14 +499,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1384366362914734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf8b65c78ee6db4291e2670060a2647, type: 3}
+  m_Script: {fileID: 11500000, guid: fd94178214646964d908297147d5af15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hasNoEnemies: 0
   enemyParent: {fileID: 0}
   enemyMelee: 0
   enemyRanged: 0
-  placeholder: {fileID: 1898445321837384, guid: 09e14c596e782a742829f1166838514d, type: 3}
 --- !u!1 &1476785428554506
 GameObject:
   m_ObjectHideFlags: 0

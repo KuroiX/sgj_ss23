@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddRoom : MonoBehaviour
+public class RoomBehaviour : MonoBehaviour
 {
     //Entry room and Boss room should not have more enemies!
     public bool hasNoEnemies;
@@ -17,16 +16,20 @@ public class AddRoom : MonoBehaviour
     public int enemyMelee;
     public int enemyRanged;
 
-    public GameObject placeholder;
+    public EnemyTypes placeholder;
 
     //TODO:Enemies Scripts?
     private List<Vector3> enemiesMeleeSP = new List<Vector3>();
     private List<Vector3> enemiesRangedSP = new List<Vector3>();
 
+    private List<GameObject> remainingEnemies = new List<GameObject>();
+
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(this.gameObject);
+
+        //OnInit();
     }
 
     void OnInit()
@@ -36,14 +39,14 @@ public class AddRoom : MonoBehaviour
         //TODO: Spawn Obstacles and enemies
         for (int i = 0; i < Random.Range(1, 5); i++)
         {
-            enemiesMeleeSP.Add(new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0));
+            enemiesMeleeSP.Add(new Vector3(enemyParent.transform.position.x + Random.Range(-3.75f, 3.75f), enemyParent.transform.position.y + Random.Range(-3.75f, 3.75f), 0));
             //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
         for (int i = 0; i < Random.Range(1, 5); i++)
         {
-            enemiesRangedSP.Add(new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0));
-            //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+            enemiesRangedSP.Add(new Vector3(enemyParent.transform.position.x + Random.Range(-3.75f, 3.75f), enemyParent.transform.position.y + Random.Range(-3.75f, 3.75f), 0));
+            //Instantiate(placeholder.enemyType1, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
         }
 
         SpawnEnemies(enemyMelee, enemiesMeleeSP);
@@ -53,9 +56,11 @@ public class AddRoom : MonoBehaviour
 
     void OnFinish()
     {
+        remainingEnemies.Clear();
         //Delete enemies remaining under the GameObject
-        foreach(Transform child in enemyParent.transform)
+        foreach (Transform child in enemyParent.transform)
         {
+            remainingEnemies.Add(child.gameObject);
             Destroy(child.gameObject);
         }
     }
@@ -65,19 +70,19 @@ public class AddRoom : MonoBehaviour
     {
         foreach (Vector3 go in enemyList)
         {
-            switch(enemyType)
+            switch (enemyType)
             {
                 case 0:
-                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
+                    Instantiate(placeholder.enemyType1, go, Quaternion.identity, enemyParent.transform);
                     break;
                 case 1:
-                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
+                    Instantiate(placeholder.enemyType2, go, Quaternion.identity, enemyParent.transform);
                     break;
-                    case 2:
-                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
-                    break;
+                //case 2:
+                //    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
+                //    break;
                 default:
-                    Instantiate(placeholder, go, Quaternion.identity, enemyParent.transform);
+                    Instantiate(placeholder.enemyType1, go, Quaternion.identity, enemyParent.transform);
                     break;
             }
         }
@@ -90,6 +95,6 @@ public class AddRoom : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player") OnFinish();
+        if (collision.tag == "Player") OnFinish();
     }
 }
