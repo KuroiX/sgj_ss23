@@ -26,9 +26,9 @@ namespace Controller.Characters
 
         private void Start()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _rigidbody2D = GetComponentInParent<Rigidbody2D>();
             player = GameObject.Find("Player");
-            _playerHealth = player.GetComponent<PlayerHealth>();
+            _playerHealth = player.GetComponentInParent<PlayerHealth>();
             _currentHealth = stats.health;
         }
 
@@ -82,18 +82,18 @@ namespace Controller.Characters
             }
             if (_currentHealth <= 0)
             {
-                DefaultActions oldAction = player.GetComponent<DefaultActions>();
-                Destroy(oldAction);
-
-                player.AddComponent<T>();
-                player.GetComponent<T>().stats = stats;
-                // TODO: fix null reference when killing gengar as gengar
-                player.GetComponent<T>().Input = player.GetComponent<InputInterface>();
-                player.GetComponent<PlayerHealth>().UpdateKillCount();
-                Destroy(gameObject);
+                GameObject parent = transform.parent.gameObject;
+                GameObject playerchild = player.GetComponentInChildren<DefaultActions>().gameObject;
+                
                 player.GetComponent<PlayerHealth>().UpdateHealth();
-            }
+                player.GetComponent<PlayerHealth>().UpdateKillCount();
+                Input = player.GetComponent<InputInterface>();
+                
+                transform.parent = player.transform;
+                playerchild.transform.parent = parent.transform;
+                Destroy(parent);
 
+            }
         }
         
         public abstract void OnHit();

@@ -23,7 +23,7 @@ namespace Controller
         private void Start()
         {
             // TODO
-            GetComponent<DefaultActions>().Input = this;
+            GetComponentInChildren<DefaultActions>().Input = this;
         }
 
         private void OnEnable()

@@ -57,7 +57,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void Start()
     {
-        GetComponent<DefaultActions>().Input = this;
+        GetComponentInChildren<DefaultActions>().Input = this;
         currentState = AIState.IDLE;
         currentSeeState = SEEState.CHASE;
         currentIdleState = IDLEState.WAIT;
