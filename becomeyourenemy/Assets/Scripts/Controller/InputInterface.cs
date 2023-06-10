@@ -4,7 +4,7 @@ public interface InputInterface
 {
     
     public Vector2 MoveDirection { get; set; }
-    public bool Ability1 { get; set; }
-    public bool Ability2 { get; set; }
+    public Vector2 Ability1Direction { get; set; }
+    public Vector2 Ability2Direction { get; set; }
 
 }
