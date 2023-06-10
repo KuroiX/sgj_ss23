@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private Vector3 _velocity;
+    private int damage;
 
     public void SetVelocity(Vector3 velocity)
     {
@@ -28,7 +29,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            other.gameObject.GetComponentInChildren<DefaultActions>().OnHit();
+            other.gameObject.GetComponentInChildren<DefaultActions>().OnHit(damage, gameObject.CompareTag("EnemyAbility"));
             Destroy(gameObject);
         }
         
