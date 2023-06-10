@@ -53,6 +53,8 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     private float _attackCooldownTime;
     private float _searchTime;
     private Vector2 _searchPosition;
+
+    private float _rangeBuffer;
     #endregion
 
     protected virtual void Start()
@@ -66,6 +68,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         _attackCooldownTime = 0;
         _searchTime = 0;
         _searchPosition = Vector2.zero;
+        _rangeBuffer = 0.1f;
     }
 
     private void Update()
@@ -104,7 +107,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     {
         Vector2 vectorToPlayer  = this.vectorToPlayer();
 
-        if (vectorToPlayer.magnitude < seeRange)
+        if (vectorToPlayer.magnitude < seeRange - _rangeBuffer)
         {
             this.currentState = AIState.SEE;
             this.currentSeeState = SEEState.CHASE;
@@ -173,7 +176,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     {
         Vector2 vectorToPlayer = this.vectorToPlayer();
 
-        if (vectorToPlayer.magnitude > seeRange)
+        if (vectorToPlayer.magnitude > seeRange + _rangeBuffer)
         {
             this.currentState = AIState.SEARCH;
             _searchTime = searchTime;
@@ -198,7 +201,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 
                 MoveDirection = vectorToPlayer.normalized * chaseSpeed;
 
-                if (vectorToPlayer.magnitude < attackRange)
+                if (vectorToPlayer.magnitude < attackRange - _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.ATTACK;
                     if (_attackCooldownTime < 0)
@@ -220,10 +223,10 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 }
 
                 
-                if (vectorToPlayer.magnitude > attackRange)
+                if (vectorToPlayer.magnitude > attackRange + _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.CHASE;
-                }else if (vectorToPlayer.magnitude < fleeRange)
+                }else if (vectorToPlayer.magnitude < fleeRange - _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.FLEE;
                 }
@@ -232,7 +235,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             case SEEState.FLEE:
                 MoveDirection = vectorToPlayer.normalized  * (fleeSpeed * -1);
 
-                if (vectorToPlayer.magnitude > fleeRange)
+                if (vectorToPlayer.magnitude > fleeRange + _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.ATTACK;
                 }
@@ -244,7 +247,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     private void manageSearch()
     {
         Vector2 vectorToPlayer = this.vectorToPlayer();
-        if (vectorToPlayer.magnitude < seeRange)
+        if (vectorToPlayer.magnitude < seeRange - _rangeBuffer)
         {
             this.currentState = AIState.SEE;
             this.currentSeeState = SEEState.CHASE;
