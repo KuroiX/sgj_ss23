@@ -21,7 +21,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     protected enum SEEState
     {
-        CHASE, ATTACK, FLEE
+        CHASE, ATTACK, CIRCLE, FLEE
     }
 
     protected enum IDLEState
@@ -240,9 +240,34 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 if (vectorToPlayer.magnitude > attackRange + _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.CHASE;
-                }else if (vectorToPlayer.magnitude < fleeRange - _rangeBuffer)
+                }else if (vectorToPlayer.magnitude < fleeRange + _rangeBuffer)
+                {
+                    this.currentSeeState = SEEState.CIRCLE;
+                }
+                break;
+            
+            case SEEState.CIRCLE:
+                float newAngle = Vector2.Angle(Vector2.right, vectorToPlayer) + (vectorToPlayer.y > 0 ? 90 : -90);
+                Vector2 newDir = new Vector2(Mathf.Cos(newAngle * Mathf.Deg2Rad), Mathf.Sin(newAngle* Mathf.Deg2Rad));
+                if (vectorToPlayer.y < 0)
+                {
+                    newDir.y = -newDir.y;
+                }
+                MoveDirection = newDir  * fleeSpeed;
+                
+                if(_attackCooldownTime < 0)
+                {
+                    performAttack(vectorToPlayer);
+                    _attackCooldownTime = attackCooldown;
+                }
+                
+                
+                if (vectorToPlayer.magnitude < fleeRange - _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.FLEE;
+                }else if (vectorToPlayer.magnitude > fleeRange + _rangeBuffer)
+                {
+                    this.currentSeeState = SEEState.ATTACK;
                 }
                 break;
             
@@ -258,6 +283,9 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 if (vectorToPlayer.magnitude > fleeRange + _rangeBuffer)
                 {
                     this.currentSeeState = SEEState.ATTACK;
+                }else  if (vectorToPlayer.magnitude > fleeRange - _rangeBuffer)
+                {
+                    this.currentSeeState = SEEState.CIRCLE;
                 }
                 
                 break;
