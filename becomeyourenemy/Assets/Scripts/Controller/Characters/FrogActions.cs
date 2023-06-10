@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
 
-namespace Controller
+namespace Controller.Characters
 {
-    public class CharacterMelee : Character
+    
+    public class FrogActions : DefaultActions
     {
-
-        protected override void Move(Vector2 direction)
+        
+        public override void OnHit()
         {
-
-            Controller.Move(direction * speed);
-            
+            Switch<FrogActions>();
         }
 
         protected override void Ability1(Vector2 direction)
         {
             
-            Debug.Log(gameObject + " SLASHES for " + damage + " Damage!");
+            Debug.Log(gameObject + " SLASHES for " + stats.damage + " Damage!");
             
         }
     
@@ -27,4 +26,5 @@ namespace Controller
         }
 
     }
+    
 }
