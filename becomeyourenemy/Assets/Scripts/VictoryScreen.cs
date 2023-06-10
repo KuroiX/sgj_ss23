@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VictoryScreen : MonoBehaviour
 {
@@ -22,10 +23,6 @@ public class VictoryScreen : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnEnable()
     {
@@ -33,5 +30,10 @@ public class VictoryScreen : MonoBehaviour
         enemiesAbsorbedText.text = "Enemies absorbed: " + uiManager.killCount;
         yourTimeText.text = "Your time: " + uiManager.speedrunTime;
 
+    }
+
+    private void BackToMainMenu()
+    {
+        // todo     SceneManager.LoadScene()
     }
 }

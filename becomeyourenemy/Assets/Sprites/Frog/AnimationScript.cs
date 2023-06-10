@@ -24,7 +24,7 @@ public class AnimationScript : MonoBehaviour
 
     void LateUpdate()
     {
-        if (transform.position != _prevPos)
+        if (transform.position.x != _prevPos.x || transform.position.z != _prevPos.z)
         {
             _animator.SetBool("IsWalking", true);
         }
