@@ -6,9 +6,9 @@ namespace Controller.Characters
     public class GostActions : DefaultActions
     {
         
-        public override void OnHit()
+        public override void OnHit(int damage, bool enemyAbility)
         {
-            Switch<GostActions>();
+            takeDamage<FroschActions>();
         }
 
         protected override void Ability1(Vector2 direction)

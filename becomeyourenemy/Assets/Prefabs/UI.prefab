@@ -1277,6 +1277,7 @@ MonoBehaviour:
   killCount: 0
   speedrunTime: 
   rawSpeedrunTime: 0
+  victoryScreen: {fileID: 4497388578452542730}
 --- !u!1 &472652144750898596
 GameObject:
   m_ObjectHideFlags: 0

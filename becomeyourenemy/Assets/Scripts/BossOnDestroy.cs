@@ -1,16 +1,13 @@
 using UnityEngine;
 
-namespace EnemyAI
+public class BossOnDestroy : MonoBehaviour
 {
-    public class BossOnDestroy : MonoBehaviour
+
+    [SerializeField] private SceneLoader sceneLoader;
+
+    private void OnDestroy()
     {
-    
-        [SerializeField] private SceneLoader sceneLoader;
-    
-        private void OnDestroy()
-        {
-            sceneLoader.LoadNextScene();
-        }
-    
+        GameObject.Find("UI").GetComponent<UIManager>().ShowVictoryScreen();
     }
+
 }
