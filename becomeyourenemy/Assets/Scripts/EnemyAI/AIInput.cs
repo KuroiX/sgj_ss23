@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Controller;
 using Controller.Characters;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 
 
 public abstract class AIInput : MonoBehaviour, InputInterface
@@ -28,16 +28,18 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     }
     
     [SerializeField] protected AIState currentState;
-    [SerializeField] protected SEEState currSeeState;
-    [SerializeField] protected IDLEState currIdleState;
-    [SerializeField] protected float enemySpeed;
+    [SerializeField] protected SEEState currentSeeState; 
+    [SerializeField] protected IDLEState currentIdleState;
     [SerializeField] protected float seeRange;
+    [SerializeField] protected float chaseSpeed;
     [SerializeField] protected float attackRange;
+    [SerializeField] protected float attackSpeed;
     [SerializeField] protected float fleeRange;
+    [SerializeField] protected float fleeSpeed;
     [SerializeField] protected float idleMoveRange;
-    [SerializeField] protected float idleMoveSpeedFactor;
+    [SerializeField] protected float idleSpeed;
     [SerializeField] protected Transform playerTransform;
-
+   
 
     #region IdleRegion
     private Vector2 _idlePoint;
@@ -51,8 +53,8 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     {
         GetComponent<DefaultActions>().Input = this;
         currentState = AIState.IDLE;
-        currSeeState = SEEState.CHASE;
-        currIdleState = IDLEState.WAIT;
+        currentSeeState = SEEState.CHASE;
+        currentIdleState = IDLEState.WAIT;
         _idlePoint = new Vector2(transform.position.x, transform.position.y);
         _idleIsSet = false;
     }
@@ -67,16 +69,16 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         }
     }
 
-    private Vector2 dirToPlayer()
+    private Vector2 vectorToPlayer()
     {
-        return Vector2.zero;
+        return (Vector2) (playerTransform.position - this.transform.position) ;
     }
 
     private void manageIdle()
     {
-        Vector2 dirToPlayer  = this.dirToPlayer();
+        Vector2 vectorToPlayer  = this.vectorToPlayer();
 
-        if (dirToPlayer != Vector2.zero)
+        if (vectorToPlayer.magnitude < seeRange)
         {
             this.currentState = AIState.SEE;
             return;
@@ -88,7 +90,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     protected virtual void IdleMovement()
     {
-        switch (currIdleState)
+        switch (currentIdleState)
         {
             case IDLEState.WAIT:
                 if (!_idleIsSet)
@@ -105,7 +107,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 {
                     _idleTime = 0;
                     _idleIsSet = false;
-                    currIdleState = IDLEState.MOVE;
+                    currentIdleState = IDLEState.MOVE;
                 }
                 
                 break;
@@ -122,7 +124,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
                 //Move to point
                 Vector2 directionVector = (_idlePointToReach - (Vector2)transform.position).normalized;
-                MoveDirection = directionVector * idleMoveSpeedFactor;
+                MoveDirection = directionVector * idleSpeed;
                 
                 
                 //Point is reached
@@ -130,7 +132,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
                 {
                     _idleIsSet = false;
                     MoveDirection = Vector2.zero;
-                    currIdleState = IDLEState.WAIT;
+                    currentIdleState = IDLEState.WAIT;
                 }
                 
                 break;
@@ -140,17 +142,54 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void manageSee()
     {
-        Vector2 dirToPlayer = this.dirToPlayer();
+        Vector2 vectorToPlayer = this.vectorToPlayer();
 
-        if (dirToPlayer == Vector2.zero)
+        if (vectorToPlayer.magnitude > seeRange)
         {
             this.currentState = AIState.IDLE;
             return;
         }
 
-        switch (currSeeState)
+        SeeMovement();
+    }
+
+    protected virtual void SeeMovement()
+    {
+        Vector2 vectorToPlayer = this.vectorToPlayer();
+        switch (currentSeeState)
         {
+            case SEEState.CHASE:
+                
+                MoveDirection = vectorToPlayer.normalized * chaseSpeed;
+
+                if (vectorToPlayer.magnitude < attackRange)
+                {
+                    this.currentSeeState = SEEState.ATTACK;
+                }
+                break;
             
+            case SEEState.ATTACK:
+                
+                MoveDirection = vectorToPlayer.normalized * attackSpeed;
+
+                if (vectorToPlayer.magnitude > attackRange)
+                {
+                    this.currentSeeState = SEEState.CHASE;
+                }else if (vectorToPlayer.magnitude < fleeRange)
+                {
+                    this.currentSeeState = SEEState.FLEE;
+                }
+                break;
+            
+            case SEEState.FLEE:
+                MoveDirection = vectorToPlayer.normalized  * (fleeSpeed * -1);
+
+                if (vectorToPlayer.magnitude > fleeRange)
+                {
+                    this.currentSeeState = SEEState.ATTACK;
+                }
+                
+                break;
         }
     }
 
