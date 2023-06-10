@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public int killCount;
-    public string speedrunTime;
-    public float rawSpeedrunTime;
+    [HideInInspector] public int killCount;
+    [HideInInspector] public string speedrunTime;
+    [HideInInspector] public float rawSpeedrunTime;
     
     // Start is called before the first frame update
     void Awake()

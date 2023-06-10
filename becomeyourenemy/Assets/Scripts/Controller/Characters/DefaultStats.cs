@@ -8,7 +8,7 @@ namespace Controller.Characters
         
         public float speed;
         public float damage;
-        public float health;
+        public int health;
 
     }
 }
