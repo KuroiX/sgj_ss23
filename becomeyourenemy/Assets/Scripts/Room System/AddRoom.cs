@@ -15,42 +15,79 @@ public class AddRoom : MonoBehaviour
     public GameObject placeholder;
 
     //TODO:Enemies Scripts?
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<Vector3> enemiesMeleeSP = new List<Vector3>();
+    private List<Vector3> enemiesRangedSP = new List<Vector3>();
 
     void Start()
     {
-        //TODO: Spawn Obstacles and enemies
-        for(int i = 0; i < Random.Range(1, 5); i++)
-        {
-            enemies.Add(new GameObject());
-            //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
-        }
-
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         templates.rooms.Add(this.gameObject);
-
-        for(int i = 0; i < enemies.Count; i++)
-        {
-            enemies.Remove(enemies[i]);
-        }
     }
 
     void OnInit()
     {
-        foreach(GameObject go in enemies)
+        //TODO: Spawn Obstacles and enemies
+        for (int i = 0; i < Random.Range(1, 5); i++)
         {
-            Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+            enemiesMeleeSP.Add(new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0));
+            //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+        }
+
+        for (int i = 0; i < Random.Range(1, 5); i++)
+        {
+            enemiesRangedSP.Add(new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0));
+            //Instantiate(placeholder, new Vector3(transform.position.x + Random.Range(-2.5f, 2.5f), transform.position.y + Random.Range(-2.5f, 2.5f), 0), Quaternion.identity, this.gameObject.transform);
+        }
+
+        foreach (Vector3 go in enemiesMeleeSP)
+        {
+            //Instead of placeholder -> Enemy Prefab
+            Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+        }
+
+        foreach (Vector3 go in enemiesRangedSP)
+        {
+            //Instead of placeholder -> Enemy Prefab
+            Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
 
         }
     }
 
     void OnFinish()
     {
-        
+        //Delete enemies remaining on the list
+    }
+
+    //Can also be an Enum to determine which type of enemy will be instantiated
+    void SpawnEnemies(int enemyType, List<Vector3> enemyList)
+    {
+        foreach (Vector3 go in enemyList)
+        {
+            switch(enemyType)
+            {
+                case 0:
+                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    break;
+                case 1:
+                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    break;
+                    case 2:
+                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    break;
+                default:
+                    Instantiate(placeholder, go, Quaternion.identity, this.gameObject.transform);
+                    break;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") OnInit();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player") OnFinish();
     }
 }
