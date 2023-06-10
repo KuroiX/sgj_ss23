@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: hasEnemies
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114329229263871776, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
+      propertyPath: hasNoEnemies
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114391489058514274, guid: 10c65f0c164d2e04e9c3daf97304609a, type: 3}
       propertyPath: templates
       value: 
