@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7392547018842776320}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 89522203379614949}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 4193653667965922628}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 3830937917207278686}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1266,7 +1266,7 @@ GameObject:
   - component: {fileID: 3336764497804571471}
   - component: {fileID: 2055457097683211565}
   m_Layer: 0
-  m_Name: BigRoom
+  m_Name: AA_BigRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 1555134999159914075}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
