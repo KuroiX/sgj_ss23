@@ -103,7 +103,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             Debug.LogError("Player is missing");
             return Vector2.zero;
         }
-        return (Vector2) (playerTransform.position - this.transform.position) ;
+        return playerTransform.position - this.transform.position ;
     }
 
     private bool canSeePlayer()

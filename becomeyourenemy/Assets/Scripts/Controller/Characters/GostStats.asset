@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98fe8e8f964247f4b7d1e10c38b831fc, type: 3}
-  m_Name: FroschStats
+  m_Script: {fileID: 11500000, guid: ffca4f33710a96548b402943f206862b, type: 3}
+  m_Name: GostStats
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 2
-  health: 20
-  ability1Cooldown: 3
+  damage: 4
+  health: 4
+  ability1Cooldown: 1
   ability2Cooldown: 1
-  dashTime: 0.4
-  dashSpeed: 4
-  stompLifeTime: 1
-  stompRadius: 1
-  stompObject: {fileID: 7426101202113884455, guid: 3b37d592ddb503840bedcfd2ff358919, type: 3}
+  velocity: 1
+  projectile: {fileID: 3666110588480143353, guid: ec14d55d59cce9e42a17eea39c7ee62a, type: 3}
