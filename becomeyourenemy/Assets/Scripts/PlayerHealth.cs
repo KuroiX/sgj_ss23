@@ -44,10 +44,10 @@ public class PlayerHealth : MonoBehaviour
     {
         healthSlider.value = _currentHealth / maxHealth;
         healthText.text = _currentHealth + " / " + maxHealth;
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1f, 1);
-        }
+        }*/
 
         if (_dead)
         {

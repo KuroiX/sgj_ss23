@@ -17,10 +17,19 @@ namespace Controller.Characters
         private float ab2cooldown;
         private float lastAb1 = float.MinValue;
         private float lastAb2 = float.MinValue;
+        
+        private GameObject player;
+        private PlayerHealth _playerHealth;
+
+        private int _currentHealth;
+
 
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            player = GameObject.Find("Player");
+            _playerHealth = player.GetComponent<PlayerHealth>();
+            _currentHealth = stats.health;
         }
 
         private void FixedUpdate()
@@ -67,11 +76,13 @@ namespace Controller.Characters
 
         protected void Switch<T>() where T: DefaultActions
         {
-
-            stats.health -= 1;
-            if (stats.health <= 0)
+            _currentHealth -= 1; //todo custom damage for each enemy
+            if (gameObject.CompareTag("Character"))
             {
-                GameObject player = GameObject.Find("Player");
+                _playerHealth.TakeDamage(1, 1);
+            }
+            if (_currentHealth <= 0)
+            {
                 DefaultActions oldAction = player.GetComponent<DefaultActions>();
                 Destroy(oldAction);
 

@@ -12,7 +12,7 @@ public class SpeedrunTimer : MonoBehaviour
     private Coroutine _cr;
     private TimeSpan timeSpan;
 
-    private UIManager _uiManager;
+    [SerializeField] private UIManager _uiManager;
 
 
     // Start is called before the first frame update
