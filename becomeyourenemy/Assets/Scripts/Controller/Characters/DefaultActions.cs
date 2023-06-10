@@ -12,15 +12,17 @@ namespace Controller.Characters
         [SerializeField]
         protected DefaultStats stats;
 
-        private CharacterController _controller;
+        private Rigidbody2D _rigidbody2D;
 
         private void Start()
         {
-            _controller = GetComponent<CharacterController>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
         {
+            Debug.Log("PlayerPosition: "+transform.position);
+            
             if (Input.MoveDirection.magnitude > 0)
             {
                 Move(Input.MoveDirection);
@@ -43,9 +45,7 @@ namespace Controller.Characters
 
         private void Move(Vector2 direction)
         {
-
-            _controller.Move(direction * stats.speed);
-            
+            _rigidbody2D.MovePosition((Vector2)transform.position + direction * stats.speed * 0.05f);
         }
 
         protected void Switch<T>() where T: DefaultActions
