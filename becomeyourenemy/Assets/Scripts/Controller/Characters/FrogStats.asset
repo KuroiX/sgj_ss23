@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damage: 1
-  health: 1
+  health: -12
+  lifeTime: 1
+  meleeAttack: {fileID: 7426101202113884455, guid: db9e26b26e3433841b9f757123e1b486, type: 3}

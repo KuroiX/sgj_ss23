@@ -70,18 +70,33 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void Update()
     {
+        if (playerIsDestroyed())
+        {
+            MoveDirection = Vector2.zero;
+            return;
+        }
         switch (currentState)
         {
             case AIState.IDLE: manageIdle(); break;
             case AIState.SEE: manageSee(); break;
             case AIState.SEARCH: manageSearch(); break;
         }
-         _attackCooldownTime -= Time.deltaTime / attackCooldown;
-         _searchTime -= Time.deltaTime / searchTime;
+         _attackCooldownTime -= Time.deltaTime;
+         _searchTime -= Time.deltaTime;
+    }
+
+    private bool playerIsDestroyed()
+    {
+        return ((object)playerTransform) != null && !playerTransform;
     }
 
     private Vector2 vectorToPlayer()
     {
+        if (playerIsDestroyed())
+        {
+            Debug.LogError("Player is missing");
+            return Vector2.zero;
+        }
         return (Vector2) (playerTransform.position - this.transform.position) ;
     }
 
