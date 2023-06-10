@@ -20,7 +20,7 @@ public class MeleeAttack : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        //TODO maybe anders?
+        //TODO muss geändert werden!!
         gameObject.transform.parent = player.transform;
     }
 

@@ -76,8 +76,9 @@ public abstract class AIInput : MonoBehaviour, InputInterface
             case AIState.SEE: manageSee(); break;
             case AIState.SEARCH: manageSearch(); break;
         }
-         _attackCooldownTime -= Time.deltaTime / attackCooldown;
-         _searchTime -= Time.deltaTime / searchTime;
+         _attackCooldownTime -= Time.deltaTime;
+         Debug.Log("Attack cooldown: "+_attackCooldownTime);
+         _searchTime -= Time.deltaTime;
     }
 
     private Vector2 vectorToPlayer()
