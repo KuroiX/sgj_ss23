@@ -19,7 +19,6 @@ namespace Controller.Characters
         private float lastAb2 = float.MinValue;
         
         private GameObject player;
-        private PlayerHealth _playerHealth;
 
         private int _currentHealth;
 
@@ -28,7 +27,6 @@ namespace Controller.Characters
         {
             _rigidbody2D = GetComponentInParent<Rigidbody2D>();
             player = GameObject.Find("Player");
-            _playerHealth = player.GetComponentInParent<PlayerHealth>();
             _currentHealth = stats.health;
         }
 
@@ -78,7 +76,11 @@ namespace Controller.Characters
             _currentHealth -= 1; //todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))
             {
-                _playerHealth.TakeDamage(1, 1);
+                player.GetComponentInParent<PlayerHealth>().TakeDamage(1, 1);
+            }
+            else
+            {
+                GetComponent<EnemyHealth>().TakeDamage(1,1);
             }
             if (_currentHealth <= 0)
             {

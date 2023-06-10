@@ -28,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //maxHealth = actions.stats.health;
         healthSlider.value = _currentHealth / maxHealth;
         healthText.text = _currentHealth + " / " + maxHealth;
     }
