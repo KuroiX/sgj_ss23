@@ -184,6 +184,11 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         SeeMovement();
     }
 
+    protected virtual void performAttack(Vector2 vectorToPlayer)
+    {
+        Ability1Direction = vectorToPlayer.normalized;
+    }
+
     protected virtual void SeeMovement()
     {
         Vector2 vectorToPlayer = this.vectorToPlayer();
@@ -210,7 +215,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
                 if(_attackCooldownTime < 0)
                 {
-                    Ability1Direction = vectorToPlayer.normalized;
+                    performAttack(vectorToPlayer);
                     _attackCooldownTime = attackCooldown;
                 }
 
