@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Controller.Characters
@@ -20,9 +20,10 @@ namespace Controller.Characters
         {
             
             //Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
+            Quaternion lookQuaternion = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * direction);
             GameObject projectileInstance = Instantiate(((GostStats1) stats).projectile,
                 transform.position + new Vector3(direction.x * transform.localScale.x, direction.y * transform.localScale.y),
-                Quaternion.identity);
+                lookQuaternion);
             projectileInstance.GetComponent<Projectile>().damage = stats.damage;
             projectileInstance.GetComponent<Projectile>().SetVelocity(direction * ((GostStats1) stats).velocity);
 
