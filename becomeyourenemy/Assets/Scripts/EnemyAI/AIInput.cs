@@ -46,6 +46,14 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     protected Transform playerTransform;
     [SerializeField] protected float actionsDelay;
 
+    [Space(20)]
+
+    [SerializeField] protected float chaseMaxCooldown = 3f;
+    [SerializeField] protected float idleMaxCooldown = 3f;
+    [SerializeField] protected float chaseCooldown;
+    [SerializeField] protected float idleCooldown;
+
+
     #region IdleRegion
     private Vector2 _idlePoint;
     protected float _idleTime;
@@ -73,10 +81,19 @@ public abstract class AIInput : MonoBehaviour, InputInterface
         _searchTime = 0;
         _searchPosition = Vector2.zero;
         _rangeBuffer = 0.1f;
+
+        chaseCooldown = 0;
     }
 
     private void Update()
     {
+        if(currentState == AIState.SEE)
+            chaseCooldown += Time.deltaTime;
+        
+        if(currentState == AIState.IDLE)
+            idleCooldown += Time.deltaTime;
+        
+        
         if (playerIsDestroyed())
         {
             MoveDirection = Vector2.zero;
@@ -120,8 +137,9 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void manageIdle()
     {
-        if (canSeePlayer())
+        if (canSeePlayer() && idleCooldown >= idleMaxCooldown)
         {
+            idleCooldown = 0;
             this.currentState = AIState.SEE;
             this.currentSeeState = SEEState.CHASE;
             return;
@@ -191,9 +209,11 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     private void manageSee()
     {
-        if (!canSeePlayer())
+        if (!canSeePlayer() || chaseCooldown >= chaseMaxCooldown)
         {
-            this.currentState = AIState.SEARCH;
+            chaseCooldown = 0;
+            //this.currentState = AIState.SEARCH;
+            currentState = AIState.IDLE;
             _searchTime = searchTime;
             _searchPosition = (Vector2) this.playerTransform.position;
             return;

@@ -604,13 +604,17 @@ MonoBehaviour:
   attackRange: 5
   attackSpeed: 0.5
   attackCooldown: 2
-  fleeRange: 4
-  fleeSpeed: 0.5
+  fleeRange: 0
+  fleeSpeed: 0
   idleMoveRange: 5
   idleSpeed: 1
   searchSpeed: 1
   searchTime: 1
   actionsDelay: 0.2
+  chaseMaxCooldown: 6
+  idleMaxCooldown: 3
+  chaseCooldown: 0
+  idleCooldown: 0
 --- !u!61 &4878012144187259377
 BoxCollider2D:
   m_ObjectHideFlags: 0
