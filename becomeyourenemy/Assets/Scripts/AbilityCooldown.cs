@@ -8,28 +8,26 @@ using UnityEngine.UI;
 public class AbilityCooldown : MonoBehaviour
 {
     [SerializeField] private Slider cooldownSlider;
-    private float _timer;
-    [HideInInspector] public bool coolingDown;
+    private float _sliderProgress;
     
     // Start is called before the first frame update
     void Awake()
     {
-        _timer = 1;
-        coolingDown = false;
+        _sliderProgress = 1;
     }
 
     private void Start()
     {
-        cooldownSlider.value = _timer;
+        cooldownSlider.value = _sliderProgress;
     }
 
     private void Update()
     {
         //test
-        /*if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCooldown(3);
-        }*/
+        }
     }
 
     public void StartCooldown(float duration)
@@ -40,14 +38,12 @@ public class AbilityCooldown : MonoBehaviour
 
     IEnumerator Cooldown(float duration)
     {
-        while (_timer > 0)
+        while (_sliderProgress > 0)
         {
-            coolingDown = true;
-            cooldownSlider.value = _timer;
-            _timer -= Time.deltaTime / duration;
+            cooldownSlider.value = _sliderProgress;
+            _sliderProgress -= Time.deltaTime / duration;
             yield return null;
         }
-        _timer = 1;
-        coolingDown = false;
+        _sliderProgress = 1;
     }
 }

@@ -12,6 +12,8 @@ public class SpeedrunTimer : MonoBehaviour
     private Coroutine _cr;
     private TimeSpan timeSpan;
 
+    private UIManager _uiManager;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +45,8 @@ public class SpeedrunTimer : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             timeSpan = TimeSpan.FromSeconds(elapsedTime);
+            _uiManager.speedrunTime = timeSpan.ToString("mm':'ss'.'ff");
+            _uiManager.rawSpeedrunTime = elapsedTime;
             timerText.text = "Time: " + timeSpan.ToString("mm':'ss'.'ff");
             yield return null;
         }
