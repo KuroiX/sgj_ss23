@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c16d07db-91b2-4596-b38b-d38aefc6c369}">
+		<property name="assetPath">
+			<value>footstep_mud_land_04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1200000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{546e3f86-abcd-4cfd-86e2-1b3eb1762376}</destination>
+		</relationship>
+	</object>
+</objects>

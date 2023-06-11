@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{3fc9e982-1fe0-463c-bb06-5ca7cfec5f17}">
+		<property name="assetPath">
+			<value>Music/Boss Music/Boss_Theme_001v002_Layer_Gengar_v001.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>48</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{546e3f86-abcd-4cfd-86e2-1b3eb1762376}</destination>
+		</relationship>
+	</object>
+</objects>

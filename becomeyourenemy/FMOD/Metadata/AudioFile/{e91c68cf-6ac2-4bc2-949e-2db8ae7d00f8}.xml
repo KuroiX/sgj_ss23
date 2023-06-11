@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e91c68cf-6ac2-4bc2-949e-2db8ae7d00f8}">
+		<property name="assetPath">
+			<value>mushroomclaw.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.20170833333333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{546e3f86-abcd-4cfd-86e2-1b3eb1762376}</destination>
+		</relationship>
+	</object>
+</objects>

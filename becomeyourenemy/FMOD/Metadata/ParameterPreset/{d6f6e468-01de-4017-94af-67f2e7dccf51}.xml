@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{d6f6e468-01de-4017-94af-67f2e7dccf51}">
+		<property name="name">
+			<value>Crazy Shroom</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1e03444b-3c3e-4482-9a55-963f528e6f99}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5a334c56-4601-4d4c-8b67-acaedb2071dc}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5a334c56-4601-4d4c-8b67-acaedb2071dc}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

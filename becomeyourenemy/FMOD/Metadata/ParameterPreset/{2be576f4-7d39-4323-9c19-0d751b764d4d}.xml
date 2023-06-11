@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{2be576f4-7d39-4323-9c19-0d751b764d4d}">
+		<property name="name">
+			<value>Froggy</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1e03444b-3c3e-4482-9a55-963f528e6f99}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{fa6f66fa-1cd8-4e7f-9610-a257354a3e44}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{fa6f66fa-1cd8-4e7f-9610-a257354a3e44}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

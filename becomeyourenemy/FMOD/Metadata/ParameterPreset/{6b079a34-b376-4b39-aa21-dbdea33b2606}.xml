@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{6b079a34-b376-4b39-aa21-dbdea33b2606}">
+		<property name="name">
+			<value>Gengar</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1e03444b-3c3e-4482-9a55-963f528e6f99}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{fd80cfea-f000-4f9f-877f-f7ebe0a3a3c2}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{fd80cfea-f000-4f9f-877f-f7ebe0a3a3c2}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
