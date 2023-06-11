@@ -18,7 +18,7 @@ namespace Controller.Characters
 
         protected override void Ability1(Vector2 direction)
         {
-            MusicAndSound.Instance.PlayClaw();
+            MusicAndSound.Instance.PlayWave();
             
             float angle = Vector2.Angle(Vector2.right, direction);
 
