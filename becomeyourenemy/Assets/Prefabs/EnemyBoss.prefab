@@ -179,6 +179,10 @@ MonoBehaviour:
   searchSpeed: 0
   searchTime: 0
   actionsDelay: 0.1
+  chaseMaxCooldown: 4
+  idleMaxCooldown: 4
+  chaseCooldown: 0
+  idleCooldown: 0
   idleRectangleSize: 4
   secondAbilityProbability: 0
 --- !u!114 &8709905080989964616
