@@ -49,6 +49,12 @@ namespace Controller.Characters
             projectileInstance.GetComponent<Projectile>().SetVelocity(direction * ((GengarStats1) stats).velocity);
             projectileInstanceUp.GetComponent<Projectile>().SetVelocity(upDir * ((GengarStats1) stats).velocity);
             projectileInstanceDown.GetComponent<Projectile>().SetVelocity(downDir * ((GengarStats1) stats).velocity);
+            if (!CompareTag("Player"))
+            {
+                projectileInstance.tag = "EnemyAbility";
+                projectileInstanceUp.tag = "EnemyAbility";
+                projectileInstanceDown.tag = "EnemyAbility";
+            }
         }
     
         protected override void Ability2(Vector2 direction)
