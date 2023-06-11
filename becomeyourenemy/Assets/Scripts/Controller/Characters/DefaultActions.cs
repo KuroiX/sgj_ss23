@@ -39,7 +39,7 @@ namespace Controller.Characters
             _rigidbody2D = GetComponentInParent<Rigidbody2D>();
             player = GameObject.Find("Player");
             ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
-            ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
+            //ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
             _currentHealth = stats.health;
             ability1Countdown = 0;
             ability2Countdown = 0;

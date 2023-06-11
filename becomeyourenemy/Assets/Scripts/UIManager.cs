@@ -25,8 +25,8 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         killCount = 0;
-        currentDescription = "Slash";
-        currentSprite = actionSprites[0];
+        currentDescription = "Shoot";
+        currentSprite = actionSprites[1];
         descriptions = new[] { "Slash", "Shoot", "Triple Shoot", "Leap" };
     }
 
