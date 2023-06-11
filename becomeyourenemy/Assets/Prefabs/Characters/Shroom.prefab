@@ -605,8 +605,8 @@ MonoBehaviour:
   attackRange: 3.5
   attackSpeed: 0
   attackCooldown: 3
-  fleeRange: 0
-  fleeSpeed: 0
+  fleeRange: 2
+  fleeSpeed: 1
   idleMoveRange: 3
   idleSpeed: 1
   searchSpeed: 0
