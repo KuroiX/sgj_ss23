@@ -601,19 +601,19 @@ MonoBehaviour:
   currentSeeState: 0
   currentIdleState: 0
   seeRange: 15
-  chaseSpeed: 1.5
+  chaseSpeed: 1
   attackRange: 8
-  attackSpeed: 1
-  attackCooldown: 1
-  fleeRange: 2
-  fleeSpeed: 1
-  idleMoveRange: 5
+  attackSpeed: 0
+  attackCooldown: 3
+  fleeRange: 0
+  fleeSpeed: 0
+  idleMoveRange: 3
   idleSpeed: 1
-  searchSpeed: 1
-  searchTime: 1
+  searchSpeed: 0
+  searchTime: 0
   actionsDelay: 0.2
-  chaseMaxCooldown: 4
-  idleMaxCooldown: 4
+  chaseMaxCooldown: 3
+  idleMaxCooldown: 3
   chaseCooldown: 0
   idleCooldown: 0
 --- !u!61 &4878012144187259377
