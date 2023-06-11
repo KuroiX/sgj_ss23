@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fe8e8f964247f4b7d1e10c38b831fc, type: 3}
+  m_Name: FroschStats
+  m_EditorClassIdentifier: 
+  speed: 8.5
+  damage: 4
+  health: 10
+  ability1Cooldown: 2
+  ability2Cooldown: 1
+  dashTime: 0.4
+  dashSpeed: 22
+  stompLifeTime: 0.5
+  stompRadius: 1
+  stompObject: {fileID: 7426101202113884455, guid: 3b37d592ddb503840bedcfd2ff358919, type: 3}

@@ -13,7 +13,7 @@ public class AbilityCooldown : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _sliderProgress = 1;
+        _sliderProgress = 0;
     }
 
     private void Start()
@@ -24,10 +24,10 @@ public class AbilityCooldown : MonoBehaviour
     private void Update()
     {
         //test
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCooldown(3);
-        }
+        }*/
     }
 
     public void StartCooldown(float duration)
