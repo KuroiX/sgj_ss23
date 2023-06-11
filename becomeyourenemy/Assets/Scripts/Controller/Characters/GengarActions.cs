@@ -37,15 +37,15 @@ namespace Controller.Characters
             // Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
             Transform parentTransform = transform.parent;
             GameObject projectileInstance = Instantiate(((GengarStats1) stats).projectile,
-                transform.position + new Vector3(direction.x * parentTransform.localScale.x, direction.y * parentTransform.localScale.y),
+                transform.position + new Vector3(direction.x * parentTransform.localScale.x * 1.0f, direction.y * parentTransform.localScale.y * 1.0f),
                 lookQuaternion);
             
             GameObject projectileInstanceUp = Instantiate(((GengarStats1) stats).projectile,
-                transform.position + new Vector3(upDir.x * parentTransform.localScale.x, upDir.y * parentTransform.localScale.y),
+                transform.position + new Vector3(upDir.x * parentTransform.localScale.x * 1.0f, upDir.y * parentTransform.localScale.y * 1.0f),
                 lookQuaternion);
             
             GameObject projectileInstanceDown = Instantiate(((GengarStats1) stats).projectile,
-                transform.position + new Vector3(downDir.x * parentTransform.localScale.x, downDir.y * parentTransform.localScale.y),
+                transform.position + new Vector3(downDir.x * parentTransform.localScale.x * 1.0f, downDir.y * parentTransform.localScale.y * 1.0f),
                 lookQuaternion);
 
             projectileInstance.GetComponent<Projectile>().damage = stats.damage;
