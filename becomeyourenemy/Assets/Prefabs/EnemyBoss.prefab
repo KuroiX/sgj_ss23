@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4282328089768959907}
   - component: {fileID: 4282328089768959904}
   - component: {fileID: 8709905080686814046}
-  - component: {fileID: 8709905081095005790}
   - component: {fileID: 8709905080989964616}
+  - component: {fileID: 7768242687563264653}
   m_Layer: 0
   m_Name: EnemyBoss
   m_TagString: Character
@@ -152,39 +152,6 @@ MonoBehaviour:
   healthSlider: {fileID: 8709905081557377449}
   healthText: {fileID: 8709905080566472082}
   actions: {fileID: 8709905081095005791}
---- !u!114 &8709905081095005790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4282328089768959838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e126f6305204ebdac556b6094c951e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  currentSeeState: 0
-  currentIdleState: 0
-  seeRange: 6
-  chaseSpeed: 0.2
-  attackRange: 4
-  attackSpeed: 0
-  attackCooldown: 10
-  fleeRange: 0
-  fleeSpeed: 1
-  idleMoveRange: 4
-  idleSpeed: 0.2
-  searchSpeed: 0
-  searchTime: 0
-  actionsDelay: 0.1
-  chaseMaxCooldown: 4
-  idleMaxCooldown: 4
-  chaseCooldown: 0
-  idleCooldown: 0
-  idleRectangleSize: 4
-  secondAbilityProbability: 0
 --- !u!114 &8709905080989964616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +165,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+--- !u!114 &7768242687563264653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282328089768959838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7565afdf020d4438fff459d3ee26e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  currentSeeState: 0
+  currentIdleState: 0
+  seeRange: 20
+  chaseSpeed: 1
+  attackRange: 15
+  attackSpeed: 0
+  attackCooldown: 1
+  fleeRange: 0
+  fleeSpeed: 1
+  idleMoveRange: 4
+  idleSpeed: 0.2
+  searchSpeed: 0
+  searchTime: 0
+  actionsDelay: 0.1
+  chaseMaxCooldown: 5
+  idleMaxCooldown: 2
+  chaseCooldown: 0
+  idleCooldown: 0
 --- !u!1 &4306672711949185828
 GameObject:
   m_ObjectHideFlags: 0
