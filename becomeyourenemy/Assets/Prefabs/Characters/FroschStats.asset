@@ -19,6 +19,6 @@ MonoBehaviour:
   ability2Cooldown: 1
   dashTime: 0.4
   dashSpeed: 22
-  stompLifeTime: 0.5
+  stompLifeTime: 0.05
   stompRadius: 1
   stompObject: {fileID: 7426101202113884455, guid: 3b37d592ddb503840bedcfd2ff358919, type: 3}
