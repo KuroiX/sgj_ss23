@@ -1706,14 +1706,14 @@ MonoBehaviour:
       Data2: 1078733306
       Data3: -951381857
       Data4: -1269138829
-    Path: event:/Level Music
+    Path: event:/Music/Level Music
   fmodEvent1:
     Guid:
       Data1: -1273542620
       Data2: 1111061013
       Data3: -1653809787
       Data4: -194192626
-    Path: event:/Boss Music
+    Path: event:/Music/Boss Music
 --- !u!4 &843848255
 Transform:
   m_ObjectHideFlags: 0

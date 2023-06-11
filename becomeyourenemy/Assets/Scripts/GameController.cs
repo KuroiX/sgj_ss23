@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        
         MusicAndSound.Instance.PlayLevelMusic();
     }
 }
