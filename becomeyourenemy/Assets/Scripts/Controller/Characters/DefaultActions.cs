@@ -63,6 +63,7 @@ namespace Controller.Characters
                 ability1Countdown = stats.ability1Cooldown;
                 ability1Countdown -= Time.deltaTime;
                 Ability1(Input.Ability1Direction);
+                Input.Ability1Direction = new Vector2(0f, 0f);
                 if (Input.GetType() == typeof(PlayerInput))
                 {
                     ability1Cooldown.StartCooldown(stats.ability1Cooldown);
