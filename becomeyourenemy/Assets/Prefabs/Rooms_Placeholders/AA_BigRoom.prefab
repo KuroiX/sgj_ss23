@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4ad684e903d7f8a42a4fa0716e37d072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -537,7 +537,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4ad684e903d7f8a42a4fa0716e37d072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1048,7 +1048,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4ad684e903d7f8a42a4fa0716e37d072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2447,7 +2447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7937825689012310835}
   - component: {fileID: 7937825689012310834}
-  - component: {fileID: 7937825689012310836}
   m_Layer: 0
   m_Name: CameraBounds
   m_TagString: Untagged
@@ -2499,19 +2498,6 @@ PolygonCollider2D:
       - {x: -19.2, y: 10.8}
       - {x: -19.2, y: -10.8}
       - {x: 19.2, y: -10.8}
---- !u!114 &7937825689012310836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7937825689012310833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c0e3ebf0d6d46840ae048f06cfe5e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomCamera: {fileID: 7937825688146523560}
 --- !u!1 &8109355319219780622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2790,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4ad684e903d7f8a42a4fa0716e37d072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

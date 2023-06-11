@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fe8e8f964247f4b7d1e10c38b831fc, type: 3}
   m_Name: FroschStats
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
   damage: 2
-  health: 20
+  health: 2
   ability1Cooldown: 3
   ability2Cooldown: 1
   dashTime: 0.4
