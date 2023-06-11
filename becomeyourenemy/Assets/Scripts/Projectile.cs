@@ -7,7 +7,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private Vector3 _velocity;
-    private int damage;
+    public int damage;
+    
+    
 
     public void SetVelocity(Vector3 velocity)
     {
@@ -27,12 +29,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (CompareTag("EnemyAbility") ^ other.gameObject.CompareTag("Player"))
+        /*if (CompareTag("EnemyAbility") ^ other.gameObject.CompareTag("Player"))
         {
             return;
             //Das sollte Friendly Fire beheben
-        }
-        if (other.gameObject.CompareTag("Character"))
+        }*/
+        if (other.gameObject.CompareTag("Character") || other.CompareTag("Player"))
         {
             other.gameObject.GetComponentInChildren<DefaultActions>().OnHit(damage, gameObject.CompareTag("EnemyAbility"));
             Destroy(gameObject);

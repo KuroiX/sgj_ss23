@@ -11,7 +11,7 @@ public class MeleeAttack : MonoBehaviour
 
     private float _lifeTime;
     private float _currentlifeTime;
-    private int damage;
+    public int damage;
     private Transform _parent;
 
     public void SetParent(Transform parentTransform)
@@ -43,7 +43,7 @@ public class MeleeAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Character"))
+        if (other.gameObject.CompareTag("Character") || other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponentInChildren<DefaultActions>().OnHit(damage, gameObject.CompareTag("EnemyAbility"));
         }

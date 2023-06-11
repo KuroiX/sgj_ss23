@@ -79,64 +79,22 @@ namespace Controller.Characters
 
         }
 
-
-       /* private void FixedUpdate()
-        {
-            float t = Time.time;
-
-            //Debug.Log("Input: "+Input);
-            //Debug.Log("MoveDirection: "+Input.MoveDirection);
-            Move(Input.MoveDirection);
-
-            if (Input.Ability1Direction.magnitude > 0)
-            {
-                Debug.Log("test1");
-                if (t > lastAb1 + stats.ability1Cooldown)
-                {
-                    Debug.Log("test2");
-                    Ability1(Input.Ability1Direction);
-                    if (Input.GetType() == typeof(PlayerInput))
-                    {
-                        ability1Cooldown.StartCooldown(stats.ability1Cooldown);
-                    }
-                    lastAb1 = t;
-                    //Tell UI ability 1 was used
-                    Input.Ability1Direction = new Vector2(0f, 0f);
-                }
-            }
-
-            if (Input.Ability2Direction.magnitude > 0)
-            {
-                if (t > lastAb2 + stats.ability2Cooldown)
-                {
-                    Ability2(Input.Ability2Direction);
-                    if (Input.GetType() == typeof(PlayerInput))
-                    {
-                        ability2Cooldown.StartCooldown(stats.ability2Cooldown);
-                    }
-                    lastAb2 = t;
-                    //Tell UI ability 2 was used
-                    Input.Ability2Direction = new Vector2(0f, 0f);
-                }
-            }
-
-        }*/
-
         private void Move(Vector2 direction)
         {
             _rigidbody2D.velocity = direction * stats.speed;
         }
 
-        protected void takeDamage<T>() where T: DefaultActions
+        protected void takeDamage<T>(int damage, bool enemyAbility) where T: DefaultActions
         {
-            _currentHealth -= 1; //todo custom damage for each enemy
+            _currentHealth -= damage; 
+            Debug.Log(damage);//todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))
             {
-                player.GetComponentInParent<PlayerHealth>().TakeDamage(1, 1);
+                player.GetComponentInParent<PlayerHealth>().TakeDamage(damage, 1);
             }
             else
             {
-                health.TakeDamage(1,1);
+                health.TakeDamage(damage,1);
             }
             if (_currentHealth <= 0)
             {
