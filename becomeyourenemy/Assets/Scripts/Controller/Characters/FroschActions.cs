@@ -7,6 +7,8 @@ namespace Controller.Characters
 {
     public class FroschActions : DefaultActions
     {
+        //[SerializeField] private GameObject stomp;
+        [SerializeField] private Animator _animator; 
         private void Awake()
         {
             actionIndex = 3; //stomp
@@ -35,8 +37,10 @@ namespace Controller.Characters
 
                 yield return null;
             }
-
+            
             Debug.Log("Stomping");
+            _animator.SetTrigger("StompTrigger");
+            
             float radius = ((FroschStats1) stats).stompRadius;
             for (int i = 0; i < 8; i++)
             {

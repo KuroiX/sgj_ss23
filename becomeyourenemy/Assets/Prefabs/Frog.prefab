@@ -542,6 +542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 741ff4d9e52546d58aaedd5205fd9059, type: 2}
   health: {fileID: 733775116}
+  actionIndex: 0
+  _animator: {fileID: 8453332063490492015}
 --- !u!1 &4878012144187259148
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,5 +783,10 @@ PrefabInstance:
 --- !u!4 &8453332063490492014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3549381892086901563, guid: 0df217c5e09cc6d42874d8e4c2a9bd4f, type: 3}
+  m_PrefabInstance: {fileID: 4904900205353004373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8453332063490492015 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3549381892086901562, guid: 0df217c5e09cc6d42874d8e4c2a9bd4f, type: 3}
   m_PrefabInstance: {fileID: 4904900205353004373}
   m_PrefabAsset: {fileID: 0}
