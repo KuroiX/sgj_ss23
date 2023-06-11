@@ -1387,9 +1387,7 @@ PrefabInstance:
         Mouse - Aim
 
         Left
-        Mouse Button - Ability 1
-
-        Right Mouse Button - Ability 2'
+        Mouse Button - Ability 1'
       objectReference: {fileID: 0}
     - target: {fileID: 7731025183758697654, guid: b95aadce8b095684b8beae97d4451279, type: 3}
       propertyPath: m_fontSize
