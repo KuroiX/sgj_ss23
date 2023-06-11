@@ -11,7 +11,7 @@ namespace Controller
         public Vector2 Ability1Direction { get; set; }
         public Vector2 Ability2Direction { get; set; }
     
-        private InputSystem _characterInput;
+        public InputSystem _characterInput;
 
         private void Awake()
         {

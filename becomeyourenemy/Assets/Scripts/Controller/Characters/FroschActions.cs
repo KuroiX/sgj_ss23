@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,11 @@ namespace Controller.Characters
 {
     public class FroschActions : DefaultActions
     {
+        private void Awake()
+        {
+            actionIndex = 3; //stomp
+        }
+
         public override void OnHit(int damage, bool enemyAbility)
         {
             takeDamage<FroschActions>();
@@ -39,6 +45,10 @@ namespace Controller.Characters
                 GameObject stompInstance = Instantiate(((FroschStats1) stats).stompObject, transform.position + newPos, Quaternion.identity);
                 stompInstance.GetComponent<MeleeAttack>().SetParent(this.transform);
                 stompInstance.GetComponent<MeleeAttack>().SetLifeTime(((FroschStats1)stats).stompLifeTime);
+                if (!CompareTag("Player"))
+                {
+                    stompInstance.tag = "EnemyAbility";
+                }
             }
         }
 

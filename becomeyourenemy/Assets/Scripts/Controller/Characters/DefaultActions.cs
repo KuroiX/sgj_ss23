@@ -6,7 +6,7 @@ namespace Controller.Characters
     
     public abstract class DefaultActions : MonoBehaviour
     {
-        
+
         public InputInterface Input { get; set; }
         
         [SerializeField]
@@ -30,6 +30,8 @@ namespace Controller.Characters
 
         private float ability1Countdown;
         private float ability2Countdown;
+
+        public int actionIndex;
         
 
         private void Start()
@@ -37,10 +39,11 @@ namespace Controller.Characters
             _rigidbody2D = GetComponentInParent<Rigidbody2D>();
             player = GameObject.Find("Player");
             ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
-            ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
+            //ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
             _currentHealth = stats.health;
             ability1Countdown = 0;
             ability2Countdown = 0;
+            GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
         }
 
         private void Update()
@@ -63,7 +66,7 @@ namespace Controller.Characters
                 }
             }
 
-            if (Input.Ability2Direction.magnitude > 0 && ability1Countdown <= 0)
+            /*if (Input.Ability2Direction.magnitude > 0 && ability1Countdown <= 0)
             {
                 ability2Countdown = stats.ability2Cooldown;
                 ability2Countdown -= Time.deltaTime;
@@ -72,7 +75,7 @@ namespace Controller.Characters
                 {
                     ability2Cooldown.StartCooldown(stats.ability2Cooldown);
                 }
-            }
+            }*/
 
         }
 
@@ -141,7 +144,7 @@ namespace Controller.Characters
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
-                ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
+                //ability2Cooldown = GameObject.Find("GreyOut2").GetComponent<AbilityCooldown>();
                 
                 _currentHealth = stats.health;
                 Input = player.GetComponent<InputInterface>();
@@ -152,6 +155,8 @@ namespace Controller.Characters
                 
                 transform.SetParent(player.transform);
                 transform.localPosition = new Vector3(0f, 0f, 0f);
+
+                GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
                 
                 Destroy(playerChild);
                 Destroy(enemyParent);

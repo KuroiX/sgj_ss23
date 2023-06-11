@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Controller.Characters
 {
     
     public class GostActions : DefaultActions
     {
-        
+        private void Awake()
+        {
+            actionIndex = 1;
+        }
+
         public override void OnHit(int damage, bool enemyAbility)
         {
             takeDamage<GostActions>();

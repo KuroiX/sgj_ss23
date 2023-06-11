@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Controller.Characters
 {
     
     public class ShroomActions : DefaultActions
     {
-        
+        private void Awake()
+        {
+            actionIndex = 0;
+        }
+
         public override void OnHit(int damage, bool enemyAbility)
         {
             takeDamage<ShroomActions>();
@@ -23,6 +28,10 @@ namespace Controller.Characters
             //GameObject meleeInstance = Instantiate(((FrogStats1)stats).meleeAttack, Vector3.zero, Quaternion.identity);
             //Debug.Log("MeleeInstance: " + meleeInstance);
             meleeInstance.GetComponent<MeleeAttack>().SetLifeTime(((ShroomStats1)stats).lifeTime);
+            if (!CompareTag("Player"))
+            {
+                meleeInstance.tag = "EnemyAbility";
+            }
         }
     
         protected override void Ability2(Vector2 direction)

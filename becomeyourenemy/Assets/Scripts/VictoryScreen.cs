@@ -32,8 +32,12 @@ public class VictoryScreen : MonoBehaviour
 
     }
 
-    private void BackToMainMenu()
+    public void BackToMainMenu()
     {
-        // todo     SceneManager.LoadScene()
+        GameObject.Find("SceneManager").GetComponent<SceneLoader>().LoadSceneByIndex(0);
+    }
+    public void LoadNextStage()
+    {
+        GameObject.Find("SceneManager").GetComponent<SceneLoader>().LoadNextScene();
     }
 }
