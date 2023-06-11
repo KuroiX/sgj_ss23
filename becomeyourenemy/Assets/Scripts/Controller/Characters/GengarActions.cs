@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Controller.Characters
@@ -13,7 +13,7 @@ namespace Controller.Characters
 
         public override void OnHit(int damage, bool enemyAbility)
         {
-            takeDamage();
+            takeDamage<GengarActions>(damage, enemyAbility);
         }
 
         protected override void Ability1(Vector2 direction)
@@ -33,7 +33,7 @@ namespace Controller.Characters
                 downDir.y = -downDir.y;
             }
             
-            Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
+            // Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
             GameObject projectileInstance = Instantiate(((GengarStats1) stats).projectile,
                 transform.position + new Vector3(direction.x * transform.localScale.x, direction.y * transform.localScale.y),
                 Quaternion.identity);
@@ -45,6 +45,10 @@ namespace Controller.Characters
             GameObject projectileInstanceDown = Instantiate(((GengarStats1) stats).projectile,
                 transform.position + new Vector3(downDir.x * transform.localScale.x, downDir.y * transform.localScale.y),
                 Quaternion.identity);
+
+            projectileInstance.GetComponent<Projectile>().damage = stats.damage;
+            projectileInstanceUp.GetComponent<Projectile>().damage = stats.damage;
+            projectileInstanceDown.GetComponent<Projectile>().damage = stats.damage;
             
             projectileInstance.GetComponent<Projectile>().SetVelocity(direction * ((GengarStats1) stats).velocity);
             projectileInstanceUp.GetComponent<Projectile>().SetVelocity(upDir * ((GengarStats1) stats).velocity);

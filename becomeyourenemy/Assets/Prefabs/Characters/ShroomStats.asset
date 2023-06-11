@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShroomStats
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 1
+  damage: 10
   health: 4
   ability1Cooldown: 1
   ability2Cooldown: 2

@@ -14,7 +14,7 @@ namespace Controller.Characters
 
         public override void OnHit(int damage, bool enemyAbility)
         {
-            takeDamage();
+            takeDamage<FroschActions>(damage, enemyAbility);
         }
 
         protected override void Ability1(Vector2 direction)
@@ -45,6 +45,7 @@ namespace Controller.Characters
                 GameObject stompInstance = Instantiate(((FroschStats1) stats).stompObject, transform.position + newPos, Quaternion.identity);
                 stompInstance.GetComponent<MeleeAttack>().SetParent(this.transform);
                 stompInstance.GetComponent<MeleeAttack>().SetLifeTime(((FroschStats1)stats).stompLifeTime);
+                stompInstance.GetComponent<MeleeAttack>().damage = stats.damage;
                 if (!CompareTag("Player"))
                 {
                     stompInstance.tag = "EnemyAbility";
