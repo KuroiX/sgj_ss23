@@ -54,7 +54,7 @@ public class BossAI : AIInput
         
         protected override void performAttack(Vector2 vectorToPlayer)
         {
-                if(_ability_one)
+                if (_ability_one)
                 {
                         Ability1Direction = vectorToPlayer.normalized;
                         _ability_one = Random.Range(0.0f, 1.0f) > secondAbilityProbability;

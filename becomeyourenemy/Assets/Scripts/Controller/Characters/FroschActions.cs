@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Controller.Characters
@@ -43,8 +44,19 @@ namespace Controller.Characters
             _animator.SetTrigger("StompTrigger");
             MusicAndSound.Instance.PlayClaw();
             
-            float radius = ((FroschStats1) stats).stompRadius;
-            for (int i = 0; i < 8; i++)
+            //float radius = ((FroschStats1) stats).stompRadius;
+
+            GameObject stompInstance = Instantiate(((FroschStats1)stats).stompObject, transform.position, quaternion.identity);
+            stompInstance.GetComponent<MeleeAttack>().SetParent(this.transform);
+            stompInstance.GetComponent<MeleeAttack>().SetLifeTime(((FroschStats1)stats).stompLifeTime);
+            stompInstance.GetComponent<MeleeAttack>().damage = stats.damage;
+            
+            if (!CompareTag("Player"))
+            {
+                stompInstance.tag = "EnemyAbility";
+            }
+
+            /*for (int i = 0; i < 8; i++)
             {
                 float angle = i * Mathf.PI*2f / 8;
                 Vector3 newPos = new Vector3(Mathf.Cos(angle)*radius, Mathf.Sin(angle)*radius);
@@ -55,8 +67,7 @@ namespace Controller.Characters
                 if (!CompareTag("Player"))
                 {
                     stompInstance.tag = "EnemyAbility";
-                }
-            }
+                }*/
         }
 
        

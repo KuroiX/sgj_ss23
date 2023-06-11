@@ -35,6 +35,8 @@ namespace Controller.Characters
         private float ability2Countdown;
 
         public int actionIndex;
+
+        [SerializeField] private GameObject particles;
         
 
         private void Start()
@@ -94,6 +96,9 @@ namespace Controller.Characters
             
             MusicAndSound.Instance.PlayEnemyHit();
             
+            if (particles != null)
+                particles.GetComponent<ParticleSystem>().Play();
+            Debug.Log(damage);//todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))
             {
                 player.GetComponentInParent<PlayerHealth>().TakeDamage(damage, 1);
@@ -113,7 +118,7 @@ namespace Controller.Characters
                 _currentHealth = stats.health;
                 Input = player.GetComponent<InputInterface>();
                 _rigidbody2D = player.GetComponent<Rigidbody2D>();
-                
+
                 GameObject enemyParent = transform.parent.gameObject;
                 GameObject playerChild = player.GetComponentInChildren<DefaultActions>().gameObject;
                 
@@ -123,9 +128,6 @@ namespace Controller.Characters
                 GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
                 
                 if (_room) _room.EnemyAtIndexWasKilled(_roomSpawnIndex);
-                
-                MusicAndSound.Instance.PlayShift();
-                MusicAndSound.Instance.SetCurrentEnemy(whoAmI);
                 
                 Destroy(playerChild);
                 Destroy(enemyParent);
