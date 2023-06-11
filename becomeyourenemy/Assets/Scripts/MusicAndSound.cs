@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MusicAndSound : MonoBehaviour
 {
+    private string myName;
     public static MusicAndSound Instance { get; private set; }
 
     private void Awake()
@@ -77,12 +79,12 @@ public class MusicAndSound : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Enemiy Foodstep mud");
     }
-    
+
     public void PlayShift()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Shift");
     }
-    
+
     public void StopLevelMusic()
     {
         instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -97,33 +99,67 @@ public class MusicAndSound : MonoBehaviour
     {
         instance.setParameterByName("Stress", value);
     }
-    
+
     public void SetCurrentEnemy(string enemyName)
     {
         if (name == "Froggy")
         {
-            instance.setParameterByName("Crazy Shroom", 0);
+            myName = "Froggy";
+            StartCoroutine(Fadeout());
             instance.setParameterByName("Froggy", 1);
-            instance.setParameterByName("Gengar", 0);
-            instance1.setParameterByName("Crazy Shroom", 0);
             instance1.setParameterByName("Froggy", 1);
-            instance1.setParameterByName("Gengar", 0);
-        }else if (name == "Shroom")
+        }
+        else if (name == "Shroom")
         {
+            myName = "Shroom";
+            StartCoroutine(Fadeout());
             instance.setParameterByName("Crazy Shroom", 1);
-            instance.setParameterByName("Froggy", 0);
-            instance.setParameterByName("Gengar", 0);
             instance1.setParameterByName("Crazy Shroom", 1);
-            instance1.setParameterByName("Froggy", 0);
-            instance1.setParameterByName("Gengar", 0);
-        }else if (name == "Gengar")
+        }
+        else if (name == "Gengar")
         {
-            instance.setParameterByName("Crazy Shroom", 0);
-            instance.setParameterByName("Froggy", 0);
+            myName = "Gengar";
+            StartCoroutine(Fadeout());
             instance.setParameterByName("Gengar", 1);
-            instance1.setParameterByName("Crazy Shroom", 0);
-            instance1.setParameterByName("Froggy", 0);
             instance1.setParameterByName("Gengar", 1);
         }
     }
-}                                                                     
+
+    private IEnumerator Fadeout()
+    {
+        if (myName == "Froggy")
+        {
+            for (float value = 1; value <= 0; value = -0.1f)
+            {
+                instance.setParameterByName("Crazy Shroom", value);
+                instance.setParameterByName("Gengar", value);
+                instance1.setParameterByName("Crazy Shroom", value);
+                instance1.setParameterByName("Gengar", value);
+                yield return null;
+            }
+        }
+        else if (myName == "Shroom")
+        {
+            
+            for (float value = 1; value <= 0; value = -0.1f)
+            {
+                instance.setParameterByName("Froggy", value);
+                instance.setParameterByName("Gengar", value);
+                instance1.setParameterByName("Froggy", value);
+                instance1.setParameterByName("Gengar", value);
+                yield return null;
+            }
+        }
+        else if(myName == "Gengar") 
+        {
+            for (float value = 1; value <= 0; value = -0.1f)
+            {
+                instance.setParameterByName("Crazy Shroom", value);
+                instance.setParameterByName("Froggy", value);
+                instance1.setParameterByName("Crazy Shroom", value);
+                instance1.setParameterByName("Froggy", value);
+                yield return null;
+            }
+        }
+    }
+}
