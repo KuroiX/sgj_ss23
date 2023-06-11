@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Controller.Characters
@@ -32,19 +32,20 @@ namespace Controller.Characters
                 upDir.y = -upDir.y;
                 downDir.y = -downDir.y;
             }
-            
+            Quaternion lookQuaternion = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * direction);
+
             // Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
             GameObject projectileInstance = Instantiate(((GengarStats1) stats).projectile,
                 transform.position + new Vector3(direction.x * transform.localScale.x, direction.y * transform.localScale.y),
-                Quaternion.identity);
+                lookQuaternion);
             
             GameObject projectileInstanceUp = Instantiate(((GengarStats1) stats).projectile,
                 transform.position + new Vector3(upDir.x * transform.localScale.x, upDir.y * transform.localScale.y),
-                Quaternion.identity);
+                lookQuaternion);
             
             GameObject projectileInstanceDown = Instantiate(((GengarStats1) stats).projectile,
                 transform.position + new Vector3(downDir.x * transform.localScale.x, downDir.y * transform.localScale.y),
-                Quaternion.identity);
+                lookQuaternion);
 
             projectileInstance.GetComponent<Projectile>().damage = stats.damage;
             projectileInstanceUp.GetComponent<Projectile>().damage = stats.damage;
