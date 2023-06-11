@@ -27,6 +27,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (CompareTag("EnemyAbility") ^ other.gameObject.CompareTag("Player"))
+        {
+            return;
+            //Das sollte Friendly Fire beheben
+        }
         if (other.gameObject.CompareTag("Character"))
         {
             other.gameObject.GetComponentInChildren<DefaultActions>().OnHit(damage, gameObject.CompareTag("EnemyAbility"));

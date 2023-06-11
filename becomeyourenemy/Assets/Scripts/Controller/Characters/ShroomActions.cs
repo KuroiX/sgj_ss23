@@ -28,6 +28,10 @@ namespace Controller.Characters
             //GameObject meleeInstance = Instantiate(((FrogStats1)stats).meleeAttack, Vector3.zero, Quaternion.identity);
             //Debug.Log("MeleeInstance: " + meleeInstance);
             meleeInstance.GetComponent<MeleeAttack>().SetLifeTime(((ShroomStats1)stats).lifeTime);
+            if (!CompareTag("Player"))
+            {
+                meleeInstance.tag = "EnemyAbility";
+            }
         }
     
         protected override void Ability2(Vector2 direction)
