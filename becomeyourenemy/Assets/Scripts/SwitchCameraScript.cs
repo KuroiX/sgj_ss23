@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class SwitchCameraScript : MonoBehaviour
 {
-    public static CinemachineVirtualCamera currentCamera;
+    public static CinemachineVirtualCamera CurrentCamera;
     [SerializeField] private CinemachineVirtualCamera roomCamera;
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        currentCamera.Priority -= 1;
+        CurrentCamera.Priority -= 1;
         roomCamera.Priority += 1;
-        currentCamera = roomCamera;
+        CurrentCamera = roomCamera;
     }
 }

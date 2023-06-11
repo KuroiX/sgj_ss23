@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffca4f33710a96548b402943f206862b, type: 3}
   m_Name: GostStats
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
   damage: 4
   health: 4
   ability1Cooldown: 1

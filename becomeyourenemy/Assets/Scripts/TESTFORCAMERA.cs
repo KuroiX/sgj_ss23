@@ -9,6 +9,6 @@ public class TESTFORCAMERA : MonoBehaviour
     public CinemachineVirtualCamera c;
     private void Start()
     {
-        SwitchCameraScript.currentCamera = c;
+        SwitchCameraScript.CurrentCamera = c;
     }
 }
