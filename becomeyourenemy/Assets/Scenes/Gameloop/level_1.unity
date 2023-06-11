@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 992689352}
     - target: {fileID: 8872193487293105345, guid: 5bf7e3b7de62cb64183e6e02bca7a44b, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8872193487293105345, guid: 5bf7e3b7de62cb64183e6e02bca7a44b, type: 3}
       propertyPath: m_LocalScale.x
@@ -407,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125477757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.44894, y: 17.8, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -599,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878012144187259144, guid: c045dc6c06b1a1d4094e3ac02a180d22, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4878012144187259144, guid: c045dc6c06b1a1d4094e3ac02a180d22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -781,11 +781,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878012144187259144, guid: 5cbec0840a7066042a24bbe7ac817cf0, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4878012144187259144, guid: 5cbec0840a7066042a24bbe7ac817cf0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.876461
+      value: 77.9
       objectReference: {fileID: 0}
     - target: {fileID: 4878012144187259144, guid: 5cbec0840a7066042a24bbe7ac817cf0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -833,6 +833,75 @@ PrefabInstance:
       objectReference: {fileID: 1345868626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cbec0840a7066042a24bbe7ac817cf0, type: 3}
+--- !u!1001 &614984610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1963619056, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963619056, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.6545486
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.321889
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259144, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259148, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: m_Name
+      value: Gengar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878012144187259379, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1345868626}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db0dad25d0531154da95835faedd2bb7, type: 3}
 --- !u!1 &728080955
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +935,7 @@ Transform:
   - {fileID: 55911005}
   - {fileID: 1406930746}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &884650322
 PrefabInstance:
@@ -1103,7 +1172,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1228674607
 PrefabInstance:
@@ -1171,7 +1240,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 720177154934782860, guid: 249aab5b8ed980c41af915ed74184083, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 720177154934782860, guid: 249aab5b8ed980c41af915ed74184083, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1417,7 +1486,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1970631035 stripped
 MonoBehaviour:

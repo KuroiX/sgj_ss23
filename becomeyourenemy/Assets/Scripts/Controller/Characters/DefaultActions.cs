@@ -127,7 +127,7 @@ namespace Controller.Characters
             _rigidbody2D.velocity = direction * stats.speed;
         }
 
-        protected void takeDamage<T>() where T: DefaultActions
+        protected void takeDamage()
         {
             _currentHealth -= 1; //todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))

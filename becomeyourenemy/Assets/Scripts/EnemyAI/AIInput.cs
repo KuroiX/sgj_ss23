@@ -43,7 +43,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
     [SerializeField] protected float idleSpeed;
     [SerializeField] protected float searchSpeed;
     [SerializeField] protected float searchTime;
-    [SerializeField] protected Transform playerTransform;
+    protected Transform playerTransform;
     [SerializeField] protected float actionsDelay;
 
     #region IdleRegion
@@ -62,6 +62,7 @@ public abstract class AIInput : MonoBehaviour, InputInterface
 
     protected virtual void Start()
     {
+        playerTransform = GameObject.Find("Player").transform;
         GetComponentInChildren<DefaultActions>().Input = this;
         currentState = AIState.IDLE;
         currentSeeState = SEEState.CHASE;
