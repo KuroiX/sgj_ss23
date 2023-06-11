@@ -602,7 +602,7 @@ MonoBehaviour:
   seeRange: 10
   chaseSpeed: 1
   attackRange: 5
-  attackSpeed: 0.5
+  attackSpeed: 0
   attackCooldown: 2
   fleeRange: 0
   fleeSpeed: 0
@@ -611,8 +611,8 @@ MonoBehaviour:
   searchSpeed: 1
   searchTime: 1
   actionsDelay: 0.2
-  chaseMaxCooldown: 6
-  idleMaxCooldown: 3
+  chaseMaxCooldown: 2.5
+  idleMaxCooldown: 5
   chaseCooldown: 0
   idleCooldown: 0
 --- !u!61 &4878012144187259377
