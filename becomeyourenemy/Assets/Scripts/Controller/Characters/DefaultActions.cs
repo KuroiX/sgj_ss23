@@ -35,6 +35,8 @@ namespace Controller.Characters
         private float ability2Countdown;
 
         public int actionIndex;
+
+        [SerializeField] private GameObject particles;
         
 
         private void Start()
@@ -90,7 +92,9 @@ namespace Controller.Characters
 
         protected void takeDamage<T>(int damage, bool enemyAbility) where T: DefaultActions
         {
-            _currentHealth -= damage; 
+            _currentHealth -= damage;
+            if (particles != null)
+                particles.GetComponent<ParticleSystem>().Play();
             Debug.Log(damage);//todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))
             {
@@ -111,7 +115,7 @@ namespace Controller.Characters
                 _currentHealth = stats.health;
                 Input = player.GetComponent<InputInterface>();
                 _rigidbody2D = player.GetComponent<Rigidbody2D>();
-                
+
                 GameObject enemyParent = transform.parent.gameObject;
                 GameObject playerChild = player.GetComponentInChildren<DefaultActions>().gameObject;
                 
@@ -121,7 +125,8 @@ namespace Controller.Characters
                 GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
                 
                 if (_room) _room.EnemyAtIndexWasKilled(_roomSpawnIndex);
-                
+                if (player.GetComponent<DefaultActions>() != null)
+                    particles = player.GetComponent<DefaultActions>().particles;
                 Destroy(playerChild);
                 Destroy(enemyParent);
 
