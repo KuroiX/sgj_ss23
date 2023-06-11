@@ -600,19 +600,19 @@ MonoBehaviour:
   currentState: 0
   currentSeeState: 0
   currentIdleState: 0
-  seeRange: 15
-  chaseSpeed: 1.5
-  attackRange: 8
-  attackSpeed: 1
-  attackCooldown: 4
+  seeRange: 10
+  chaseSpeed: 1.2
+  attackRange: 3.5
+  attackSpeed: 0
+  attackCooldown: 3
   fleeRange: 0
   fleeSpeed: 0
-  idleMoveRange: 5
+  idleMoveRange: 3
   idleSpeed: 1
-  searchSpeed: 1
-  searchTime: 1
+  searchSpeed: 0
+  searchTime: 0
   actionsDelay: 0.2
-  chaseMaxCooldown: 4
+  chaseMaxCooldown: 2
   idleMaxCooldown: 4
   chaseCooldown: 0
   idleCooldown: 0
@@ -629,7 +629,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0065528154, y: -0.000000029802322}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -640,7 +640,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.79031014, y: 0.895155}
   m_EdgeRadius: 0
 --- !u!50 &4878012144187259378
 Rigidbody2D:
