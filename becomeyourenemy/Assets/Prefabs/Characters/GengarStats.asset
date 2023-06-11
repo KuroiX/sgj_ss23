@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b591a3eaf64433927948f4dc9b62db, type: 3}
   m_Name: GengarStats
   m_EditorClassIdentifier: 
-  speed: 8
-  damage: 10
-  health: 1
-  ability1Cooldown: 1
+  speed: 7
+  damage: 4
+  health: 6
+  ability1Cooldown: 2
   ability2Cooldown: 1
-  velocity: 1
-  angleOffset: 20
+  velocity: 0.75
+  angleOffset: 35
   projectile: {fileID: 3666110588480143353, guid: ec14d55d59cce9e42a17eea39c7ee62a, type: 3}

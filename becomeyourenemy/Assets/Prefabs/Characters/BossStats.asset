@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a780f7dc5a954dd8949c3f98f406e037, type: 3}
-  m_Name: ShroomStats
+  m_Script: {fileID: 11500000, guid: 34b591a3eaf64433927948f4dc9b62db, type: 3}
+  m_Name: BossStats
   m_EditorClassIdentifier: 
-  speed: 7.5
+  speed: 7
   damage: 5
-  health: 10
-  ability1Cooldown: 1.5
+  health: 20
+  ability1Cooldown: 2
   ability2Cooldown: 1
-  lifeTime: 0.5
-  meleeAttack: {fileID: 7426101202113884455, guid: db9e26b26e3433841b9f757123e1b486, type: 3}
+  velocity: 0.75
+  angleOffset: 35
+  projectile: {fileID: 3666110588480143353, guid: ec14d55d59cce9e42a17eea39c7ee62a, type: 3}

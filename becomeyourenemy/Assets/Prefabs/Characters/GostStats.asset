@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GostStats
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 4
-  health: 4
+  damage: 1
+  health: 10
   ability1Cooldown: 1
   ability2Cooldown: 1
   velocity: 1
