@@ -20,9 +20,10 @@ namespace Controller.Characters
         {
             
             //Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
+            Transform parentTransform = transform.parent;
             Quaternion lookQuaternion = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * direction);
             GameObject projectileInstance = Instantiate(((GostStats1) stats).projectile,
-                transform.position + new Vector3(direction.x * transform.localScale.x, direction.y * transform.localScale.y),
+                transform.position + new Vector3(direction.x * parentTransform.localScale.x * 1.0f, direction.y * parentTransform.localScale.y * 1.0f),
                 lookQuaternion);
             projectileInstance.GetComponent<Projectile>().damage = stats.damage;
             projectileInstance.GetComponent<Projectile>().SetVelocity(direction * ((GostStats1) stats).velocity);
