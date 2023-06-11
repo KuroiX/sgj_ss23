@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
         currentDescription = "Shoot";
         currentSprite = actionSprites[1];
         descriptions = new[] { "Slash", "Shoot", "Triple Shoot", "Leap" };
+        SwitchAbility(1);
     }
 
     public void ShowFinalScreen(bool playerDied)

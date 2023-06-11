@@ -6,8 +6,12 @@ public class BossOnDestroy : MonoBehaviour
 {
     [SerializeField] private bool isPlayer;
 
+    private bool _hasLeftRoom;
+
     private void OnDestroy()
     {
+        if (_hasLeftRoom) return;
+        
         //GameObject.Find("Player").GetComponent<PlayerInput>()._characterInput.Disable();
         //Time.timeScale = 0;
         var timer = FindObjectOfType<SpeedrunTimer>();
@@ -17,5 +21,10 @@ public class BossOnDestroy : MonoBehaviour
         string findName = isPlayer ? "YourTimeText2" : "YourTimeText";
         
         GameObject.Find(findName).GetComponent<TextMeshProUGUI>().text = timerString;
+    }
+
+    public void Disable()
+    {
+        _hasLeftRoom = true;
     }
 }

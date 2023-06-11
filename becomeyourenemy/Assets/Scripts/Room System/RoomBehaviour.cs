@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Controller.Characters;
 using UnityEngine;
@@ -62,16 +63,20 @@ public class RoomBehaviour : MonoBehaviour
         //SpawnEnemies(enemyRanged, enemiesRangedSP);
 
         //Hardcoded Positions
-        SpawnEnemies();
+        StartCoroutine(SpawnTimer());
+        //SpawnEnemies();
     }
 
     void OnFinish()
     {
+        StopAllCoroutines();
+        
         remainingEnemies.Clear();
         //Delete enemies remaining under the GameObject
         foreach (Transform child in enemyParent.transform)
         {
             remainingEnemies.Add(child.gameObject);
+            child.GetComponent<BossOnDestroy>()?.Disable();
             Destroy(child.gameObject);
         }
     }
@@ -118,6 +123,12 @@ public class RoomBehaviour : MonoBehaviour
             
             remainingEnemies.Add(gO);
         }
+    }
+
+    private IEnumerator SpawnTimer()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SpawnEnemies();
     }
 
     public void EnemyAtIndexWasKilled(int index)

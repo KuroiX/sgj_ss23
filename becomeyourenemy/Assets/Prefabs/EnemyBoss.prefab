@@ -178,7 +178,6 @@ MonoBehaviour:
   idleSpeed: 0.2
   searchSpeed: 0
   searchTime: 0
-  playerTransform: {fileID: 0}
   actionsDelay: 0.1
   idleRectangleSize: 4
   secondAbilityProbability: 0
@@ -194,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66524885b99296e498627eafcb10da30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 0}
+  isPlayer: 0
 --- !u!1 &4306672711949185828
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +316,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 12eda4d96606a1b479d908b992e2b906, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

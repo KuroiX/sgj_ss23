@@ -46,7 +46,7 @@ namespace Controller.Characters
             _currentHealth = stats.health;
             ability1Countdown = 0;
             ability2Countdown = 0;
-            GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
+            //GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
         }
 
         private void Update()
