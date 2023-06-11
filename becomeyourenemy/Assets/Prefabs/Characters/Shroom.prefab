@@ -601,14 +601,14 @@ MonoBehaviour:
   currentSeeState: 0
   currentIdleState: 0
   seeRange: 10
-  chaseSpeed: 0.8
+  chaseSpeed: 1.2
   attackRange: 3.5
   attackSpeed: 0
-  attackCooldown: 1.5
-  fleeRange: 0
-  fleeSpeed: 0
+  attackCooldown: 3
+  fleeRange: 2
+  fleeSpeed: 1
   idleMoveRange: 3
-  idleSpeed: 0.6
+  idleSpeed: 1
   searchSpeed: 0
   searchTime: 0
   actionsDelay: 0.2

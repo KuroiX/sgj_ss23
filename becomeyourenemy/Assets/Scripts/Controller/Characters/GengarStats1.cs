@@ -9,7 +9,6 @@ namespace Controller.Characters
         
         public float velocity;
         public float angleOffset;
-        public bool manyBullets;
         public GameObject projectile;
         
     }

@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 7
-  health: 40
-  ability1Cooldown: 0.1
-  ability2Cooldown: 0.1
-  velocity: 0.5
+  health: 30
+  ability1Cooldown: 0.5
+  ability2Cooldown: 0.5
+  velocity: 0.75
   angleOffset: 35
-  manyBullets: 1
   projectile: {fileID: 3666110588480143353, guid: ec14d55d59cce9e42a17eea39c7ee62a, type: 3}
