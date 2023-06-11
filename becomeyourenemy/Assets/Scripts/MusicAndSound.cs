@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -29,6 +30,12 @@ public class MusicAndSound : MonoBehaviour
     public FMODUnity.EventReference fmodEvent1;
 
 
+    private void OnDestroy()
+    {
+        MusicAndSound.Instance.StopLevelMusic();
+        MusicAndSound.Instance.StopBossMusic();
+    }
+
     void Start()
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
@@ -47,32 +54,32 @@ public class MusicAndSound : MonoBehaviour
 
     public void PlayStomp()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Froggystomp");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Froggystomp");
     }
 
     public void PlayJump()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Froggyjump");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Froggyjump");
     }
 
     public void PlayClaw()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Mushroom Claw");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Mushroom Claw");
     }
 
     public void PlayWave()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Gengarwave");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Gengarwave");
     }
 
     public void PlayPlayerHit()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Hit-Player");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Hit-Player");
     }
 
     public void PlayEnemyHit()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Hit-Enemy");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Hit-Enemy");
     }
 
     public void PlayStep()
@@ -82,7 +89,7 @@ public class MusicAndSound : MonoBehaviour
 
     public void PlayShift()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Shift");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Shift");
     }
 
     public void StopLevelMusic()
@@ -102,21 +109,21 @@ public class MusicAndSound : MonoBehaviour
 
     public void SetCurrentEnemy(string enemyName)
     {
-        if (name == "Froggy")
+        if (enemyName == "Froggy")
         {
             myName = "Froggy";
             StartCoroutine(Fadeout());
             instance.setParameterByName("Froggy", 1);
             instance1.setParameterByName("Froggy", 1);
         }
-        else if (name == "Shroom")
+        else if (enemyName == "Shroom")
         {
             myName = "Shroom";
             StartCoroutine(Fadeout());
             instance.setParameterByName("Crazy Shroom", 1);
             instance1.setParameterByName("Crazy Shroom", 1);
         }
-        else if (name == "Gengar")
+        else if (enemyName == "Gengar")
         {
             myName = "Gengar";
             StartCoroutine(Fadeout());
