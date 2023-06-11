@@ -17,5 +17,5 @@ MonoBehaviour:
   health: 10
   ability1Cooldown: 1.5
   ability2Cooldown: 1
-  lifeTime: 0.1
+  lifeTime: 0.5
   meleeAttack: {fileID: 7426101202113884455, guid: db9e26b26e3433841b9f757123e1b486, type: 3}

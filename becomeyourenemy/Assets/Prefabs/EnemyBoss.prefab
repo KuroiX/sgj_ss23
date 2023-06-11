@@ -185,7 +185,7 @@ MonoBehaviour:
   chaseSpeed: 0.5
   attackRange: 15
   attackSpeed: 0
-  attackCooldown: 1
+  attackCooldown: 3
   fleeRange: 0
   fleeSpeed: 0
   idleMoveRange: 5

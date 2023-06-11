@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         SwitchCameraScript.CurrentCamera = startCamera;
-        startCamera.Priority += 1;
     }
 
     private void Start()
