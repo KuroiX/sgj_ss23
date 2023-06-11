@@ -10,4 +10,9 @@ public class GameController : MonoBehaviour
     {
         SwitchCameraScript.CurrentCamera = startCamera;
     }
+
+    private void Start()
+    {
+        MusicAndSound.Instance.PlayLevelMusic();
+    }
 }

@@ -16,7 +16,7 @@ namespace Controller.Characters
 
         public override void OnHit(int damage, bool enemyAbility)
         {
-            takeDamage<FroschActions>(damage, enemyAbility);
+            takeDamage<FroschActions>(damage, "Froggy");
         }
 
         protected override void Ability1(Vector2 direction)

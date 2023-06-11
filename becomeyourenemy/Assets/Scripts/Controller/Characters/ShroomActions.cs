@@ -13,7 +13,7 @@ namespace Controller.Characters
 
         public override void OnHit(int damage, bool enemyAbility)
         {
-            takeDamage<ShroomActions>(damage, enemyAbility);
+            takeDamage<ShroomActions>(damage, "Shroom");
         }
 
         protected override void Ability1(Vector2 direction)

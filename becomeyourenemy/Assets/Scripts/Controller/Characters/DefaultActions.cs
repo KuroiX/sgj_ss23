@@ -87,7 +87,7 @@ namespace Controller.Characters
             _rigidbody2D.velocity = direction * stats.speed;
         }
 
-        protected void takeDamage<T>(int damage, bool enemyAbility) where T: DefaultActions
+        protected void takeDamage<T>(int damage, string whoAmI) where T: DefaultActions
         {
             _currentHealth -= damage; 
             Debug.Log(damage);//todo custom damage for each enemy
@@ -120,6 +120,9 @@ namespace Controller.Characters
                 GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
                 
                 if (_room) _room.EnemyAtIndexWasKilled(_roomSpawnIndex);
+                
+                MusicAndSound.Instance.PlayShift();
+                MusicAndSound.Instance.SetCurrentEnemy(whoAmI);
                 
                 Destroy(playerChild);
                 Destroy(enemyParent);

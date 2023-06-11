@@ -13,7 +13,7 @@ namespace Controller.Characters
 
         public override void OnHit(int damage, bool enemyAbility)
         {
-            takeDamage<GengarActions>(damage, enemyAbility);
+            takeDamage<GengarActions>(damage, "Gengar");
         }
 
         protected override void Ability1(Vector2 direction)
