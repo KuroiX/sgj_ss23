@@ -24,6 +24,9 @@ namespace Controller.Characters
         [Header("Enemy Specific")]
         [SerializeField] private EnemyHealth health;
 
+        private RoomBehaviour _room;
+        private int _roomSpawnIndex;
+        
         
         private AbilityCooldown ability1Cooldown;
         private AbilityCooldown ability2Cooldown;
@@ -113,8 +116,10 @@ namespace Controller.Characters
                 
                 transform.SetParent(player.transform);
                 transform.localPosition = new Vector3(0f, 0f, 0f);
-
+                
                 GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
+                
+                if (_room) _room.EnemyAtIndexWasKilled(_roomSpawnIndex);
                 
                 Destroy(playerChild);
                 Destroy(enemyParent);
@@ -127,6 +132,12 @@ namespace Controller.Characters
         protected abstract void Ability1(Vector2 direction);
 
         protected abstract void Ability2(Vector2 direction);
+
+        public void InjectRoom(RoomBehaviour room, int index)
+        {
+            _room = room;
+            _roomSpawnIndex = index;
+        }
         
     }
     

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Controller.Characters;
 using UnityEngine;
 
 public class RoomBehaviour : MonoBehaviour
@@ -16,25 +17,25 @@ public class RoomBehaviour : MonoBehaviour
     public int enemyMelee;
     public int enemyRanged;
 
-    public EnemyTypes placeholder;
-
     //TODO:Enemies Scripts?
     private List<Vector3> enemiesMeleeSP = new List<Vector3>();
     private List<Vector3> enemiesRangedSP = new List<Vector3>();
 
     [Header("Create empty Gameobjects under Spawnpoints and assign them here")]
     [Header("These are the positions where the enemies will spawn!")]
-    public List<GameObject> enemiesMeleeHardcodedSP;
-    public List<GameObject> enemiesRangedHardcodedSP;
+    public List<GameObject> enemies;
+    public List<Transform> enemySpawnPositions;
+    private bool[] _killedEnemies;
 
     private List<GameObject> remainingEnemies = new List<GameObject>();
 
     void Start()
     {
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        templates.rooms.Add(this.gameObject);
+        //templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+        //templates.rooms.Add(this.gameObject);
 
         //OnInit();
+        _killedEnemies = new bool[enemies.Count];
     }
 
     void OnInit()
@@ -61,7 +62,7 @@ public class RoomBehaviour : MonoBehaviour
         //SpawnEnemies(enemyRanged, enemiesRangedSP);
 
         //Hardcoded Positions
-        SpawnEnemies(enemiesMeleeHardcodedSP, enemiesRangedHardcodedSP);
+        SpawnEnemies();
     }
 
     void OnFinish()
@@ -102,39 +103,35 @@ public class RoomBehaviour : MonoBehaviour
 
     //Because maybe there are gonna be only one type of enemy per tier, i left it like this but it can be changed to different types
 
-    void SpawnEnemies(List<Vector3> enemyMeleeList, List<Vector3> enemyRangedList)
+    void SpawnEnemies()
     {
-        foreach (Vector3 go in enemyMeleeList)
+        Debug.Log("Spawn?");
+        for (int i = 0; i < enemies.Count; i++)
         {
-            Instantiate(placeholder.moreEnemytypes[0], go, Quaternion.identity, enemyParent.transform);
-        }
-
-        foreach (Vector3 go in enemyMeleeList)
-        {
-            Instantiate(placeholder.moreEnemytypes[1], go, Quaternion.identity, enemyParent.transform);
+            Debug.Log("Enemy: " + i);
+            if (_killedEnemies[i]) continue;
+            
+            GameObject gO = Instantiate(enemies[i], enemySpawnPositions[i].position, Quaternion.identity,
+                enemyParent.transform);
+            
+            gO.transform.GetChild(0).GetComponent<DefaultActions>().InjectRoom(this, i);
+            
+            remainingEnemies.Add(gO);
         }
     }
 
-    void SpawnEnemies(List<GameObject> enemyMeleeList, List<GameObject> enemyRangedList)
+    public void EnemyAtIndexWasKilled(int index)
     {
-        foreach (GameObject go in enemyMeleeList)
-        {
-            Instantiate(placeholder.moreEnemytypes[0], go.transform.position, Quaternion.identity, enemyParent.transform);
-        }
-
-        foreach (GameObject go in enemyMeleeList)
-        {
-            Instantiate(placeholder.moreEnemytypes[1], go.transform.position, Quaternion.identity, enemyParent.transform);
-        }
+        _killedEnemies[index] = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") OnInit();
+        OnInit();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player") OnFinish();
+        OnFinish();
     }
 }
