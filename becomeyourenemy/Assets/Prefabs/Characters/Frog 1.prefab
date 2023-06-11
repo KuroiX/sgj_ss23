@@ -495,6 +495,58 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD:becomeyourenemy/Assets/Prefabs/Characters/Frog 1.prefab
+=======
+--- !u!1 &4835648315189155190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8385931156549284223}
+  - component: {fileID: 1992216779534536003}
+  m_Layer: 0
+  m_Name: Swappable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8385931156549284223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835648315189155190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8453332063490492014}
+  m_Father: {fileID: 4878012144187259144}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992216779534536003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835648315189155190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216f05b5bd2ad6645a94a90dd1217309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 741ff4d9e52546d58aaedd5205fd9059, type: 2}
+  health: {fileID: 733775116}
+  actionIndex: 0
+  _animator: {fileID: 8453332063490492015}
+>>>>>>> Prototype:becomeyourenemy/Assets/Prefabs/Frog.prefab
 --- !u!1 &4878012144187259148
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,4 +786,9 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8545604101657945976, guid: 79182c02ecc87484894b2e6d8c7d9430, type: 3}
   m_PrefabInstance: {fileID: 1974192338938011553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8453332063490492015 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3549381892086901562, guid: 0df217c5e09cc6d42874d8e4c2a9bd4f, type: 3}
+  m_PrefabInstance: {fileID: 4904900205353004373}
   m_PrefabAsset: {fileID: 0}
