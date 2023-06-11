@@ -122,6 +122,11 @@ public class SceneLoader : MonoBehaviour
         _fadeImage.enabled = isFadingToBlack;
         IsLoading = isFadingToBlack;
     }
+
+    public void LoadCurrentScene()
+    {
+        StartCoroutine(LoadSceneByIndexRoutine(SceneManager.GetActiveScene().buildIndex));
+    }
     
     public void LoadNextScene()
     {

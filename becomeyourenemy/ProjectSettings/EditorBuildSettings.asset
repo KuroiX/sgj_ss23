@@ -14,10 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameloop/level_1.unity
     guid: 5ce03975555865a49bdd2299c92c82a5
-  - enabled: 1
-    path: Assets/Scenes/Gameloop/level_2.unity
-    guid: 14bdde38fbfade44cbe60a4c6cf8f761
-  - enabled: 1
-    path: Assets/Scenes/Gameloop/level_generated.unity
-    guid: 0d9d5be8a26219347b757a1c65143ba3
   m_configObjects: {}

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float[] allTimeBests;
     private static GameManager instance;
     private string[] keys;
+
     //[SerializeField] private int levelAmount;
 
     private GameManager()
@@ -64,4 +65,5 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.Save();
     }
+    
 }
