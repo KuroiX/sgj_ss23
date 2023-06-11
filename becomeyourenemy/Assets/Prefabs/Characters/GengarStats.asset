@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b591a3eaf64433927948f4dc9b62db, type: 3}
   m_Name: GengarStats
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 8
   damage: 10
   health: 6
   ability1Cooldown: 1
