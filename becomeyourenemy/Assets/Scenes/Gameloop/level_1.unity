@@ -534,6 +534,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055457097683211565, guid: c818e08195064f946a5013282b1f02d9, type: 3}
       propertyPath: hasNoEnemies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055457097683211565, guid: c818e08195064f946a5013282b1f02d9, type: 3}
+      propertyPath: enemiesMeleeHardcodedSP.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3336764497804571471, guid: c818e08195064f946a5013282b1f02d9, type: 3}
