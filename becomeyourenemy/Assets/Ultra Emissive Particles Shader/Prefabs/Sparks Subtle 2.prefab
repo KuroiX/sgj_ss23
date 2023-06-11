@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19848952}
   - component: {fileID: 19950378}
   m_Layer: 0
-  m_Name: Sparks Subtle
+  m_Name: Sparks Subtle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
