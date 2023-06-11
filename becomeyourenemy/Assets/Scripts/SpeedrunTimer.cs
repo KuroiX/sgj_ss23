@@ -33,10 +33,13 @@ public class SpeedrunTimer : MonoBehaviour
         _cr = StartCoroutine(UpdateTimer());
     }
 
-    public void StopTimer()
+    public string StopTimer()
     {
         StopCoroutine(_cr);
+        timeSpan = TimeSpan.FromSeconds(elapsedTime);
         timerActive = false;
+        
+        return timeSpan.ToString("mm':'ss'.'ff");
     }
 
     private IEnumerator UpdateTimer()

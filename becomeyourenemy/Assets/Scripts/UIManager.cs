@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public string speedrunTime;
     [HideInInspector] public float rawSpeedrunTime;
     [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private GameObject gameoverScreen;
 
     [SerializeField] private Sprite[] actionSprites;
     private string[] descriptions;
@@ -30,9 +31,10 @@ public class UIManager : MonoBehaviour
         descriptions = new[] { "Slash", "Shoot", "Triple Shoot", "Leap" };
     }
 
-    public void ShowVictoryScreen()
+    public void ShowFinalScreen(bool playerDied)
     {
-        victoryScreen.SetActive(true);
+        victoryScreen.SetActive(!playerDied);
+        gameoverScreen.SetActive(playerDied);
     }
 
     public void SwitchAbility(int index)
