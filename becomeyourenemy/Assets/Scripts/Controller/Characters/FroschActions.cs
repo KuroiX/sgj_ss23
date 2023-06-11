@@ -29,6 +29,7 @@ namespace Controller.Characters
         
         private IEnumerator Dash(Vector2 direction)
         {
+            MusicAndSound.Instance.PlayClaw();
             float startTime = Time.time;
             Debug.Log("Dashing");
             while(Time.time < startTime + ((FroschStats1)stats).dashTime)
@@ -37,9 +38,10 @@ namespace Controller.Characters
 
                 yield return null;
             }
-            
+
             Debug.Log("Stomping");
             _animator.SetTrigger("StompTrigger");
+            MusicAndSound.Instance.PlayClaw();
             
             float radius = ((FroschStats1) stats).stompRadius;
             for (int i = 0; i < 8; i++)

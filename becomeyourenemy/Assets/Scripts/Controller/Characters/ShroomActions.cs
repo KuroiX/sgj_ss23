@@ -18,6 +18,7 @@ namespace Controller.Characters
 
         protected override void Ability1(Vector2 direction)
         {
+            MusicAndSound.Instance.PlayClaw();
             //Debug.Log(gameObject + " SLASHES for " + stats.damage + " Damage!");
             Quaternion lookQuaternion = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 120) * direction);
             GameObject meleeInstance = Instantiate(((ShroomStats1) stats).meleeAttack,

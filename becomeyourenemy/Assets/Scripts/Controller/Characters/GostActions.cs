@@ -18,7 +18,7 @@ namespace Controller.Characters
 
         protected override void Ability1(Vector2 direction)
         {
-            
+            MusicAndSound.Instance.PlayClaw();
             //Debug.Log(gameObject + " SHOOTS PROJECTILE at " + direction + "!");
             Quaternion lookQuaternion = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * direction);
             GameObject projectileInstance = Instantiate(((GostStats1) stats).projectile,

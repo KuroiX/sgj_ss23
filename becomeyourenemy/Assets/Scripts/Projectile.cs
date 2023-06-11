@@ -19,7 +19,6 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        MusicAndSound.Instance.PlayWave();
         Destroy(gameObject, 3);
     }
 

@@ -18,6 +18,8 @@ namespace Controller.Characters
 
         protected override void Ability1(Vector2 direction)
         {
+            MusicAndSound.Instance.PlayClaw();
+            
             float angle = Vector2.Angle(Vector2.right, direction);
 
             float angleUp = angle + ((GengarStats1)stats).angleOffset;
