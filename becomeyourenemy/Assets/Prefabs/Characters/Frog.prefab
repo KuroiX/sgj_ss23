@@ -684,6 +684,10 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 733775116}
+    - target: {fileID: 3896932872953152992, guid: 0bafbf563e9f5d04984b10daaa1820c7, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 8453332063490492015}
     - target: {fileID: 6472137357835434460, guid: 0bafbf563e9f5d04984b10daaa1820c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -748,5 +752,10 @@ MonoBehaviour:
 --- !u!4 &8385931156549284223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6472137357835434460, guid: 0bafbf563e9f5d04984b10daaa1820c7, type: 3}
+  m_PrefabInstance: {fileID: 3292528620778604707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8453332063490492015 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6404450651137740492, guid: 0bafbf563e9f5d04984b10daaa1820c7, type: 3}
   m_PrefabInstance: {fileID: 3292528620778604707}
   m_PrefabAsset: {fileID: 0}
