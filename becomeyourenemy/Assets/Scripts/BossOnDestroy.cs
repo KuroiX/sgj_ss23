@@ -1,3 +1,4 @@
+using System;
 using Controller;
 using TMPro;
 using UnityEngine;
@@ -8,8 +9,22 @@ public class BossOnDestroy : MonoBehaviour
 
     private bool _hasLeftRoom;
 
+    private void Start()
+    {
+        if (isPlayer) return;
+        
+        MusicAndSound.Instance.StopLevelMusic();
+        MusicAndSound.Instance.PlayBossMusic();
+    }
+
     private void OnDestroy()
     {
+        if (!isPlayer)
+        {
+            MusicAndSound.Instance.StopBossMusic();
+            MusicAndSound.Instance.PlayLevelMusic();
+        }
+        
         if (_hasLeftRoom) return;
         
         //GameObject.Find("Player").GetComponent<PlayerInput>()._characterInput.Disable();

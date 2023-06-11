@@ -66,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage, int multiplier)
     {
+        MusicAndSound.Instance.PlayPlayerHit();
+        
         if (_currentHealth - damage <= 0)
         {
             _currentHealth = 0;

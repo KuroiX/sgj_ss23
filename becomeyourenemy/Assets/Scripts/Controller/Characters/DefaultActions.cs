@@ -91,7 +91,9 @@ namespace Controller.Characters
         protected void takeDamage<T>(int damage, string whoAmI) where T: DefaultActions
         {
             _currentHealth -= damage; 
-            Debug.Log(damage);//todo custom damage for each enemy
+            
+            MusicAndSound.Instance.PlayEnemyHit();
+            
             if (Input.GetType() == typeof(PlayerInput))
             {
                 player.GetComponentInParent<PlayerHealth>().TakeDamage(damage, 1);
