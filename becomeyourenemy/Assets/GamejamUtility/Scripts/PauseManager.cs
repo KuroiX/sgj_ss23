@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -62,6 +63,12 @@ public class PauseManager : MonoBehaviour
     {
         pauseMenuPanel.SetActive(!volumeActivated);
         volumePanel.SetActive(volumeActivated);
+    }
+
+    public void RetryButton()
+    {
+        Time.timeScale = _timeScale;
+        FindObjectOfType<SceneLoader>().LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenuButton()

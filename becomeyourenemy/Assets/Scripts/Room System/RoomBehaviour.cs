@@ -144,7 +144,6 @@ public class RoomBehaviour : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Despawned/Killed");
         OnFinish();
     }
 }

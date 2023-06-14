@@ -4164,6 +4164,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent.Path
+      value: event:/Music/Level Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent1.Path
+      value: event:/Music/Boss Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Path
+      value: event:/Music/Menu Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data1
+      value: -121946838
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data2
+      value: 1255157533
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data3
+      value: 1131454141
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data4
+      value: 1978030902
+      objectReference: {fileID: 0}
     - target: {fileID: 8133860509539731206, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
       propertyPath: m_Name
       value: Sound

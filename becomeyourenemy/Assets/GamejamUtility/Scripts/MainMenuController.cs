@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
@@ -19,16 +20,23 @@ public class MainMenuController : MonoBehaviour
 
         _sceneLoader = FindObjectOfType<SceneLoader>();
     }
-    
+
+    private void Start()
+    {
+        MusicAndSound.Instance.PlayMenuMusic();
+    }
+
     public void Play()
     {
         //Debug.Log("Play!");
+        MusicAndSound.Instance.StopMenuMusic();
         _sceneLoader.LoadNextScene();
     }
     
     public void SelectLevel(int levelIndex)
     {
         //Debug.Log($"Level Index: {levelIndex}");
+        MusicAndSound.Instance.StopMenuMusic();
         _sceneLoader.LoadSceneByIndex(levelIndex);
     }
     

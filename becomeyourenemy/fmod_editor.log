@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001D99D696F48 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000021670839548 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,10 +16,174 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 143136
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 9728
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000E05DE1F3D8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD4F139D0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD4F13990
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD4F13AB0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD4F13B70
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002164156AF98
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='gengarwave', format=5, channels=2, frequency=48000, lengthbytes=23936, lengthpcm=109715, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.104309.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 143136
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 9728
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000E05DE1F3D8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD4F139D0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD4F13990
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD4F13AB0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD4F13B70
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002154FFD1F68
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='hit-player', format=5, channels=2, frequency=48000, lengthbytes=5408, lengthpcm=16173, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.971954.
+[WRN] EventInstance::update                    : Event {e6af74db-1cbd-472b-8dfd-cd5e5b3dbc7a} waited 119 milliseconds for sample data to load.  Preload sample data to avoid this delay.
+[WRN] EventInstance::update                    : Event {fe471ac2-d979-4ac6-831c-632ac2f787a6} waited 129 milliseconds for sample data to load.  Preload sample data to avoid this delay.
+[WRN] EventInstance::update                    : Event {fe471ac2-d979-4ac6-831c-632ac2f787a6} waited 130 milliseconds for sample data to load.  Preload sample data to avoid this delay.
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000216708FCE58, queue head = 00000216777AB9B8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000216708FCE58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000216708FCE58
+[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000216730AB1A8, queue head = 00000216777AB9B8, queue count = 0
+[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000216730AB1A8
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 00000216730AB6B8, queue head = 00000216777AB9B8, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     filename = FMOD/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3158144
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7072
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 00000216730AA938, queue head = 00000216777AB9B8, queue count = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     filename = FMOD/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002167C05A6C0
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 00000216730AB508, queue head = 00000216777AB9B8, queue count = 2
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     filename = FMOD/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 00000216730AAE48, queue head = 00000216777AB9B8, queue count = 3
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001', format=5, channels=2, frequency=48000, lengthbytes=667680, lengthpcm=2307548, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.337940.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000216730AB1A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000216730AB6B8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3158144
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7072
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002167C05A1C0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Become who you kill Level Music 001 Layer_Base_001v001', format=5, channels=2, frequency=48000, lengthbytes=598016, lengthpcm=2307548, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.494435.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000216730AB6B8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000216730AA938
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3158144
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7072
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000215786C6D20
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Become who you kill Level Music 001 Layer_Froggy_001v001', format=5, channels=2, frequency=48000, lengthbytes=608416, lengthpcm=2307548, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.887410.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000216730AA938
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000216730AB508
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3158144
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7072
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000215786C6E60
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Become who you kill Level Music 001 Layer_Gengar_001v001', format=5, channels=2, frequency=48000, lengthbytes=636896, lengthpcm=2307548, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.620538.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000216730AB508
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000216730AAE48
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3158144
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7072
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000215786C74A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Become who you kill Level Music 001 Layer_Stress_001v001', format=5, channels=2, frequency=48000, lengthbytes=644704, lengthpcm=2307548, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.763011.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000216730AAE48
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Stress_001v001 (000002154DF07338)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Stress_001v001 (0000021554788DD8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Stress_001v001 (00000216708FCCA8)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001 (0000021548B455B8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001 (0000021679E7B568)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001 (0000021543A3E238)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Gengar_001v001 (000002154DF07D58)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Gengar_001v001 (00000215547892B8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Gengar_001v001 (00000216708FCE58)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Froggy_001v001 (000002154DF07188)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Froggy_001v001 (00000215547888F8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Froggy_001v001 (00000216708FBBC8)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Base_001v001 (000002154DF06FD8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Base_001v001 (0000021554789118)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Base_001v001 (00000216708FC0D8)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Stress_001v001 (00000216730AAE48)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Stress_001v001 (000002154DEF5268)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Stress_001v001 (000002167BA29C38)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Gengar_001v001 (00000216730AB508)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Gengar_001v001 (000002154DEF5A88)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Gengar_001v001 (000002167BA29728)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Froggy_001v001 (00000216730AA938)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Froggy_001v001 (000002154DEF5748)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Froggy_001v001 (000002154A0D43F8)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Base_001v001 (00000216730AB6B8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Base_001v001 (000002154DEF55A8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Base_001v001 (000002154A0D4248)
+[LOG] SoundI::release                          : Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001 (00000216730AB1A8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001 (00000215470653E8)
+[LOG] SoundI::release                          :     Become who you kill Level Music 001 Layer_Crazy_Shroom_001v001 (000002154A0D4E18)
+[LOG] SoundI::release                          :  (0000021553FEF978)
+[LOG] SoundI::release                          :     mushroomclaw (00000215507BA068)
+[LOG] SoundI::release                          :  (000002154FBAEA78)
+[LOG] SoundI::release                          :     hit-player (0000021554788F78)
+[LOG] SoundI::release                          :  (0000021578446D28)
+[LOG] SoundI::release                          :     gengarwave (000002167C20B2C8)
+[LOG] SoundI::release                          :  (0000021553FEFF38)
+[LOG] SoundI::release                          :     froggyjump (0000021641D9ADA8)
+[LOG] SoundI::release                          :  (0000021553FEFDC8)
+[LOG] SoundI::release                          :     hit-enemy (00000215507BA548)
+[LOG] SoundI::release                          :  (00000216741E5DB8)
+[LOG] SoundI::release                          :     froggystomp (0000021641D9AA68)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -27,3 +191,5 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.

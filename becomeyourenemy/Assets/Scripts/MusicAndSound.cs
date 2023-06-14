@@ -16,14 +16,17 @@ public class MusicAndSound : MonoBehaviour
 
     private FMOD.Studio.EventInstance instance;
     private FMOD.Studio.EventInstance instance1;
+    private FMOD.Studio.EventInstance instance2;
 
     public FMODUnity.EventReference fmodEvent;
     public FMODUnity.EventReference fmodEvent1;
+    public FMODUnity.EventReference fmodEvent2;
 
     void Start()
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         instance1 = FMODUnity.RuntimeManager.CreateInstance(fmodEvent1);
+        instance2 = FMODUnity.RuntimeManager.CreateInstance(fmodEvent2);
     }
 
     public void PlayLevelMusic()
@@ -34,6 +37,11 @@ public class MusicAndSound : MonoBehaviour
     public void PlayBossMusic()
     {
         instance1.start();
+    }
+
+    public void PlayMenuMusic()
+    {
+        instance2.start();
     }
 
     public void PlayStomp()
@@ -86,9 +94,14 @@ public class MusicAndSound : MonoBehaviour
         instance1.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
-    public void SetStress(float value)
+    public void StopMenuMusic()
     {
-        instance.setParameterByName("Stress", value);
+        instance2.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    public void SetStress()
+    {
+        StartCoroutine(FadeIn());
     }
 
     public void SetCurrentEnemy(string enemyName)
@@ -117,54 +130,70 @@ public class MusicAndSound : MonoBehaviour
     }
 
     public void ResetCharacter()
-        {
-            Debug.Log("ResetChar called");
-            instance.setParameterByName("Crazy Shroom", 0);
-            instance.setParameterByName("Gengar", 0);
-            instance.setParameterByName("Froggy", 0);
-            instance1.setParameterByName("Crazy Shroom",0);
-            instance1.setParameterByName("Gengar", 0);
-            instance1.setParameterByName("Froggy", 0);
-        }
+    {
+        instance.setParameterByName("Crazy Shroom", 0);
+        instance.setParameterByName("Gengar", 0);
+        instance.setParameterByName("Froggy", 0);
+        instance1.setParameterByName("Crazy Shroom", 0);
+        instance1.setParameterByName("Gengar", 0);
+        instance1.setParameterByName("Froggy", 0);
+    }
 
-        private IEnumerator Fadeout()
+    private IEnumerator Fadeout()
     {
         if (myName == "Froggy")
         {
-            for (float value = 1; value <= 0; value = -0.1f)
+            for (float value = 1; value >= 0; value -= 0.1f)
             {
                 if (value < 0) value = 0;
                 instance.setParameterByName("Crazy Shroom", value);
                 instance.setParameterByName("Gengar", value);
                 instance1.setParameterByName("Crazy Shroom", value);
                 instance1.setParameterByName("Gengar", value);
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
             }
         }
         else if (myName == "Shroom")
         {
-            
-            for (float value = 1; value <= 0; value = -0.1f)
+            for (float value = 1; value >= 0; value -= 0.1f)
             {
-                if (value < 0) value = 0; 
+                if (value < 0) value = 0;
                 instance.setParameterByName("Froggy", value);
                 instance.setParameterByName("Gengar", value);
                 instance1.setParameterByName("Froggy", value);
                 instance1.setParameterByName("Gengar", value);
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
             }
         }
-        else if(myName == "Gengar") 
+        else if (myName == "Gengar")
         {
-            for (float value = 1; value <= 0; value = -0.1f)
+            for (float value = 1; value >= 0; value -= 0.1f)
             {
                 if (value < 0) value = 0;
                 instance.setParameterByName("Crazy Shroom", value);
                 instance.setParameterByName("Froggy", value);
                 instance1.setParameterByName("Crazy Shroom", value);
                 instance1.setParameterByName("Froggy", value);
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
             }
         }
+    }
+
+    IEnumerator FadeIn()
+    {
+        for (float value = 1; value >= 0; value -= 0.1f)
+        {
+            if (value < 0) value = 0;
+            instance.setParameterByName("Stress", value);
+            instance1.setParameterByName("Stress", value);
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        StopMenuMusic();
+        StopBossMusic();
+        StopLevelMusic();
     }
 }

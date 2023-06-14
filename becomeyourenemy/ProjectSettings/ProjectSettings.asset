@@ -15,7 +15,7 @@ PlayerSettings:
   companyName: DefaultCompany
   productName: becomeyourenemy
   defaultCursor: {fileID: 2800000, guid: 9ee137293631b9e46b1a401b72b130a4, type: 3}
-  cursorHotspot: {x: 0, y: 0}
+  cursorHotspot: {x: 256, y: 256}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
@@ -690,7 +690,7 @@ PlayerSettings:
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
   enableRoslynAnalyzers: 1
-  selectedPlatform: 0
+  selectedPlatform: 2
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 1

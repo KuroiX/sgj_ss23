@@ -207,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1970631035}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadCurrentScene
+      - m_Target: {fileID: 506082891}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -561,7 +561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125477757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1943703, y: -1.7999992, z: -10}
+  m_LocalPosition: {x: 38.2, y: 19.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2420,6 +2420,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent.Path
+      value: event:/Music/Level Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent1.Path
+      value: event:/Music/Boss Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Path
+      value: event:/Music/Menu Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data1
+      value: -121946838
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data2
+      value: 1255157533
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data3
+      value: 1131454141
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133860509539731205, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
+      propertyPath: fmodEvent2.Guid.Data4
+      value: 1978030902
+      objectReference: {fileID: 0}
     - target: {fileID: 8133860509539731206, guid: e32589f9a31bbcf4993c3ed23ce0e312, type: 3}
       propertyPath: m_Name
       value: Sound
@@ -2720,10 +2748,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1970631035}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadSceneByIndex
-        m_Mode: 3
+      - m_Target: {fileID: 506082891}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: MainMenuButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
