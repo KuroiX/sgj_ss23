@@ -1278,9 +1278,10 @@ MonoBehaviour:
   speedrunTime: 
   rawSpeedrunTime: 0
   victoryScreen: {fileID: 4497388578452542730}
+  gameoverScreen: {fileID: 0}
   actionSprites:
   - {fileID: 21300000, guid: d47fc5860fd79ca4fab981787a7f2125, type: 3}
-  - {fileID: 21300000, guid: 72e9154e69c408641a540a9f892d936f, type: 3}
+  - {fileID: 21300000, guid: 278bb161b28aa554b856cefa7aa9a377, type: 3}
   - {fileID: 21300000, guid: d489876fa76809c4bb5f2ffefea90abb, type: 3}
   - {fileID: 21300000, guid: e16d6f485bb5cfa4ea0c967bd94bcc08, type: 3}
   currentDescription: 
