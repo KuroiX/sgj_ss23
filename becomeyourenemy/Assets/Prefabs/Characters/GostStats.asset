@@ -18,4 +18,4 @@ MonoBehaviour:
   ability1Cooldown: 1
   ability2Cooldown: 1
   velocity: 0.4
-  projectile: {fileID: 3666110588480143353, guid: ec14d55d59cce9e42a17eea39c7ee62a, type: 3}
+  projectile: {fileID: 3666110588480143353, guid: b546df4d4812069448ea8c44efdb7d0b, type: 3}
