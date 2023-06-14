@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossOnDestroy : MonoBehaviour
 {
-    [SerializeField] private bool isPlayer;
+    [SerializeField] public bool isPlayer;
 
     private bool _hasLeftRoom;
 
@@ -19,25 +19,28 @@ public class BossOnDestroy : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (isPlayer) Debug.Log("thisIsPlayer" + System.DateTime.Now.Millisecond);
-        
+
         if (!isPlayer)
-        {
-            Debug.Log("Boss" + System.DateTime.Now.Millisecond);
             MusicAndSound.Instance.StopBossMusic();
+
+        if (_hasLeftRoom)
+        {
+            MusicAndSound.Instance.PlayLevelMusic();
+            return;
         }
-        
-        if (_hasLeftRoom) return;
+
+        if (!isPlayer)
+            GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
         
         //GameObject.Find("Player").GetComponent<PlayerInput>()._characterInput.Disable();
         //Time.timeScale = 0;
-        var timer = FindObjectOfType<SpeedrunTimer>();
+        /*var timer = FindObjectOfType<SpeedrunTimer>();
         string timerString = timer.StopTimer();
         GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
 
         string findName = isPlayer ? "YourTimeText2" : "YourTimeText";
         
-        GameObject.Find(findName).GetComponent<TextMeshProUGUI>().text = timerString;
+        GameObject.Find(findName).GetComponent<TextMeshProUGUI>().text = timerString;*/
     }
 
     public void Disable()

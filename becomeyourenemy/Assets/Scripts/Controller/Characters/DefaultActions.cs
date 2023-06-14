@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace Controller.Characters
@@ -109,6 +110,22 @@ namespace Controller.Characters
             }
             if (_currentHealth <= 0)
             {
+                if (Input.GetType() == typeof(PlayerInput))
+                {
+                    player.GetComponent<PlayerInput>()._characterInput.Disable();
+                    player.GetComponent<Rigidbody2D>().isKinematic = true;
+                        
+                    bool isPlayer = player.GetComponent<BossOnDestroy>().isPlayer;
+                    var timer = FindObjectOfType<SpeedrunTimer>();
+                    string timerString = timer.StopTimer();
+                    GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
+
+                    string findName = isPlayer ? "YourTimeText2" : "YourTimeText";
+        
+                    GameObject.Find(findName).GetComponent<TextMeshProUGUI>().text = timerString;
+                    return;
+                }
+                
                 player.GetComponent<PlayerHealth>().UpdateHealth();
                 player.GetComponent<PlayerHealth>().UpdateKillCount();
                 ability1Cooldown = GameObject.Find("GreyOut1").GetComponent<AbilityCooldown>();
@@ -127,7 +144,7 @@ namespace Controller.Characters
                 GameObject.Find("UI").GetComponent<UIManager>().SwitchAbility(actionIndex);
                 
                 if (_room) _room.EnemyAtIndexWasKilled(_roomSpawnIndex);
-                
+
                 MusicAndSound.Instance.SetCurrentEnemy(whoAmI);
                 Destroy(playerChild);
                 Destroy(enemyParent);
