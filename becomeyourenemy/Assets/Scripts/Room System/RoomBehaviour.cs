@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Controller.Characters;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomBehaviour : MonoBehaviour
@@ -110,10 +111,10 @@ public class RoomBehaviour : MonoBehaviour
 
     void SpawnEnemies()
     {
-        Debug.Log("Spawn?");
+        //Debug.Log("Spawn?");
         for (int i = 0; i < enemies.Count; i++)
         {
-            Debug.Log("Enemy: " + i);
+            //Debug.Log("Enemy: " + i);
             if (_killedEnemies[i]) continue;
             
             GameObject gO = Instantiate(enemies[i], enemySpawnPositions[i].position, Quaternion.identity,
@@ -143,6 +144,7 @@ public class RoomBehaviour : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("Despawned/Killed");
         OnFinish();
     }
 }

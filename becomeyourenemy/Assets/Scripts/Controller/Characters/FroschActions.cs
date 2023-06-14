@@ -23,7 +23,7 @@ namespace Controller.Characters
         protected override void Ability1(Vector2 direction)
         {
 
-            Debug.Log(gameObject + " jumps to " + direction + "!");
+            //Debug.Log(gameObject + " jumps to " + direction + "!");
 
             StartCoroutine(Dash(direction));
         }
@@ -32,7 +32,7 @@ namespace Controller.Characters
         {
             MusicAndSound.Instance.PlayJump();
             float startTime = Time.time;
-            Debug.Log("Dashing");
+           // Debug.Log("Dashing");
             while(Time.time < startTime + ((FroschStats1)stats).dashTime)
             {
                 _rigidbody2D.position += direction.normalized * (((FroschStats1)stats).dashSpeed * Time.deltaTime);
@@ -40,7 +40,7 @@ namespace Controller.Characters
                 yield return null;
             }
 
-            Debug.Log("Stomping");
+            //Debug.Log("Stomping");
             _animator.SetTrigger("StompTrigger");
             MusicAndSound.Instance.PlayStomp();
             

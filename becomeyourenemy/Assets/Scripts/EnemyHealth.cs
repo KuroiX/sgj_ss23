@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     {
         _currentSliderValue = 1;
         maxHealth = actions.stats.health;
-        Debug.Log(actions.stats.health);
+        //Debug.Log(actions.stats.health);
         healthText.text = _currentHealth + " / " + maxHealth;
         _currentHealth = maxHealth;
     }

@@ -19,10 +19,12 @@ public class BossOnDestroy : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (isPlayer) Debug.Log("thisIsPlayer" + System.DateTime.Now.Millisecond);
+        
         if (!isPlayer)
         {
+            Debug.Log("Boss" + System.DateTime.Now.Millisecond);
             MusicAndSound.Instance.StopBossMusic();
-            MusicAndSound.Instance.PlayLevelMusic();
         }
         
         if (_hasLeftRoom) return;

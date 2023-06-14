@@ -11,16 +11,7 @@ public class MusicAndSound : MonoBehaviour
 
     private void Awake()
     {
-        // If there is an instance, and it's not me, delete myself.
-
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     private FMOD.Studio.EventInstance instance;
@@ -28,13 +19,6 @@ public class MusicAndSound : MonoBehaviour
 
     public FMODUnity.EventReference fmodEvent;
     public FMODUnity.EventReference fmodEvent1;
-
-
-    private void OnDestroy()
-    {
-        MusicAndSound.Instance.StopLevelMusic();
-        MusicAndSound.Instance.StopBossMusic();
-    }
 
     void Start()
     {
@@ -132,12 +116,24 @@ public class MusicAndSound : MonoBehaviour
         }
     }
 
-    private IEnumerator Fadeout()
+    public void ResetCharacter()
+        {
+            Debug.Log("ResetChar called");
+            instance.setParameterByName("Crazy Shroom", 0);
+            instance.setParameterByName("Gengar", 0);
+            instance.setParameterByName("Froggy", 0);
+            instance1.setParameterByName("Crazy Shroom",0);
+            instance1.setParameterByName("Gengar", 0);
+            instance1.setParameterByName("Froggy", 0);
+        }
+
+        private IEnumerator Fadeout()
     {
         if (myName == "Froggy")
         {
             for (float value = 1; value <= 0; value = -0.1f)
             {
+                if (value < 0) value = 0;
                 instance.setParameterByName("Crazy Shroom", value);
                 instance.setParameterByName("Gengar", value);
                 instance1.setParameterByName("Crazy Shroom", value);
@@ -150,6 +146,7 @@ public class MusicAndSound : MonoBehaviour
             
             for (float value = 1; value <= 0; value = -0.1f)
             {
+                if (value < 0) value = 0; 
                 instance.setParameterByName("Froggy", value);
                 instance.setParameterByName("Gengar", value);
                 instance1.setParameterByName("Froggy", value);
@@ -161,6 +158,7 @@ public class MusicAndSound : MonoBehaviour
         {
             for (float value = 1; value <= 0; value = -0.1f)
             {
+                if (value < 0) value = 0;
                 instance.setParameterByName("Crazy Shroom", value);
                 instance.setParameterByName("Froggy", value);
                 instance1.setParameterByName("Crazy Shroom", value);

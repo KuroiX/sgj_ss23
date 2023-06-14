@@ -56,6 +56,7 @@ public class BossAI : AIInput
         {
                 if (_ability_one)
                 {
+                        
                         Ability1Direction = vectorToPlayer.normalized;
                         _ability_one = Random.Range(0.0f, 1.0f) > secondAbilityProbability;
                 }

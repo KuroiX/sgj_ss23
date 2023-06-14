@@ -13,7 +13,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        
+        Debug.Log("Start() in GameController");
+        MusicAndSound.Instance.ResetCharacter();
+        MusicAndSound.Instance.StopLevelMusic();
         MusicAndSound.Instance.PlayLevelMusic();
     }
 }

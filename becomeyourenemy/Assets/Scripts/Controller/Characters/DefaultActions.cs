@@ -98,7 +98,7 @@ namespace Controller.Characters
             
             if (particles != null)
                 particles.GetComponent<ParticleSystem>().Play();
-            Debug.Log(damage);//todo custom damage for each enemy
+            //Debug.Log(damage);//todo custom damage for each enemy
             if (Input.GetType() == typeof(PlayerInput))
             {
                 player.GetComponentInParent<PlayerHealth>().TakeDamage(damage, 1);
@@ -128,6 +128,7 @@ namespace Controller.Characters
                 
                 if (_room) _room.EnemyAtIndexWasKilled(_roomSpawnIndex);
                 
+                MusicAndSound.Instance.SetCurrentEnemy(whoAmI);
                 Destroy(playerChild);
                 Destroy(enemyParent);
 
