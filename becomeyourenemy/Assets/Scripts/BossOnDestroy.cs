@@ -30,7 +30,7 @@ public class BossOnDestroy : MonoBehaviour
         }
 
         if (!isPlayer)
-            GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
+            if (GameObject.Find("UI") != null) GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
         
         //GameObject.Find("Player").GetComponent<PlayerInput>()._characterInput.Disable();
         //Time.timeScale = 0;
