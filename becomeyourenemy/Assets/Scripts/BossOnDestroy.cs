@@ -30,7 +30,18 @@ public class BossOnDestroy : MonoBehaviour
         }
 
         if (!isPlayer)
-            if (GameObject.Find("UI") != null) GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
+            if (GameObject.Find("UI") != null)
+            {
+                GameObject.Find("Player").GetComponent<PlayerInput>()._characterInput.Disable();
+                GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
+                var timer = FindObjectOfType<SpeedrunTimer>();
+                string timerString = timer.StopTimer();
+                GameObject.Find("UI").GetComponent<UIManager>().ShowFinalScreen(isPlayer);
+
+                string findName = isPlayer ? "YourTimeText2" : "YourTimeText";
+        
+                GameObject.Find(findName).GetComponent<TextMeshProUGUI>().text = timerString;
+            }
         
         //GameObject.Find("Player").GetComponent<PlayerInput>()._characterInput.Disable();
         //Time.timeScale = 0;
