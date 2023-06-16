@@ -5,11 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VictoryScreen : MonoBehaviour
+public class DeathScreen : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI enemiesAbsorbedText;
     [SerializeField] private TextMeshProUGUI yourTimeText;
-    [SerializeField] private TextMeshProUGUI allTimeBestText;
 
     [SerializeField] private UIManager uiManager;
 
