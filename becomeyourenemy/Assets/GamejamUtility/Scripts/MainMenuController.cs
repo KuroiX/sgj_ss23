@@ -10,8 +10,10 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject todosPanel;
-    
+
     private SceneLoader _sceneLoader;
+    
+    public DELETELATER Deletelater;
     
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
+        Deletelater.write("Start Main Menu ");
         MusicAndSound.Instance.PlayMenuMusic();
     }
 

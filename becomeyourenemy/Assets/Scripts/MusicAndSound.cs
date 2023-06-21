@@ -1,11 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class MusicAndSound : MonoBehaviour
 {
     private string myName;
     public static MusicAndSound Instance { get; private set; }
-
+    
     private void Awake()
     {
         Instance = this;

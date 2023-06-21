@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1df4b73e00d5b5e4699a2e3a422ec88a
+guid: af26565fe4df95e448dd753302e2d8e0
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -27,7 +27,7 @@ PluginImporter:
   - first:
       Standalone: Win64
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   userData: 
   assetBundleName: 

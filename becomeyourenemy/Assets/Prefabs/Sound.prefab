@@ -44,17 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea78b6b292e544297d0965b3a6f010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Deletelater: {fileID: 0}
   fmodEvent:
     Guid:
       Data1: 1178989862
       Data2: 1078733306
       Data3: -951381857
       Data4: -1269138829
-    Path: event:/Level Music
+    Path: event:/Music/Level Music
   fmodEvent1:
     Guid:
       Data1: -1273542620
       Data2: 1111061013
       Data3: -1653809787
       Data4: -194192626
-    Path: event:/Boss Music
+    Path: event:/Music/Boss Music
+  fmodEvent2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
